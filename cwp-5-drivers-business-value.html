@@ -1,0 +1,722 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>The 5 Drivers of Business Value | Cadence Wealth Partners</title>
+<meta name="description" content="What actually moves the needle on your business value — and what most owners overlook until it's too late to fix. From Cadence Wealth Partners.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=DM+Sans:opsz,wght@9..40,400;9..40,500;9..40,600&display=swap" rel="stylesheet">
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  :root {
+    --navy: #003E6F;
+    --navy-dark: #002d52;
+    --green: #8DC63F;
+    --green-dark: #6fa030;
+    --gray: #6D6E71;
+    --gray-light: #f4f4f2;
+    --gray-mid: #e4e4e0;
+    --border: #ddddd8;
+    --white: #ffffff;
+    --text: #1a1a1a;
+    --text-muted: #5a5a5a;
+
+    --d1: #003E6F;
+    --d1-light: #daeaf8;
+    --d1-mid: #9ab8dc;
+    --d2: #3a6b0f;
+    --d2-light: #e6f4cc;
+    --d2-mid: #a8d46a;
+    --d3: #7a4a10;
+    --d3-light: #f4ede0;
+    --d3-mid: #e0c89a;
+    --d4: #3d2480;
+    --d4-light: #ede8f8;
+    --d4-mid: #b8a8e0;
+    --d5: #7a1010;
+    --d5-light: #fde8e8;
+    --d5-mid: #f0a8a8;
+  }
+
+  html { scroll-behavior: smooth; }
+  body {
+    font-family: 'DM Sans', sans-serif;
+    color: var(--text);
+    background: #f0efe9;
+    line-height: 1.6;
+    min-height: 100vh;
+  }
+
+  .page-wrap { max-width: 980px; margin: 0 auto; padding: 40px 20px 60px; }
+
+  /* ── HERO ── */
+  .hero {
+    background: var(--navy);
+    border-radius: 16px;
+    padding: 48px 48px 40px;
+    margin-bottom: 32px;
+    position: relative;
+    overflow: hidden;
+  }
+  .hero::before { content: ''; position: absolute; top: -60px; right: -60px; width: 260px; height: 260px; border-radius: 50%; background: rgba(141,198,63,0.12); }
+  .hero::after { content: ''; position: absolute; bottom: -40px; right: 80px; width: 140px; height: 140px; border-radius: 50%; background: rgba(141,198,63,0.07); }
+  .hero-inner { position: relative; z-index: 1; }
+  .hero-eyebrow { font-size: 11px; font-weight: 600; letter-spacing: 2.5px; text-transform: uppercase; color: var(--green); margin-bottom: 10px; }
+  .hero-title { font-family: 'DM Serif Display', serif; font-size: 36px; line-height: 1.2; color: var(--white); margin-bottom: 14px; }
+  .hero-title em { font-style: italic; color: #acd470; }
+  .hero-sub { font-size: 15px; color: rgba(255,255,255,0.72); max-width: 580px; line-height: 1.65; margin-bottom: 28px; }
+  .hero-meta { display: flex; align-items: center; gap: 20px; flex-wrap: wrap; }
+  .hero-brand { font-family: 'DM Serif Display', serif; font-size: 13px; color: rgba(255,255,255,0.45); }
+  .hero-pill { font-size: 11px; padding: 4px 12px; border-radius: 20px; background: rgba(255,255,255,0.1); color: rgba(255,255,255,0.65); border: 0.5px solid rgba(255,255,255,0.2); }
+
+  /* ── INTRO CALLOUT ── */
+  .intro-callout {
+    background: var(--white);
+    border: 1px solid var(--border);
+    border-radius: 14px;
+    padding: 24px 28px;
+    margin-bottom: 28px;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 24px;
+  }
+  @media (max-width: 620px) { .intro-callout { grid-template-columns: 1fr; } }
+  .intro-stat { text-align: center; padding: 16px; background: var(--gray-light); border-radius: 10px; }
+  .intro-stat-num { font-family: 'DM Serif Display', serif; font-size: 42px; color: var(--navy); line-height: 1; margin-bottom: 6px; }
+  .intro-stat-label { font-size: 12px; color: var(--text-muted); line-height: 1.5; }
+  .intro-prose { font-size: 14px; color: var(--text-muted); line-height: 1.75; display: flex; flex-direction: column; justify-content: center; }
+  .intro-prose strong { color: var(--text); font-weight: 500; }
+
+  /* ── DRIVER NAVIGATION ── */
+  .driver-nav {
+    display: flex;
+    gap: 8px;
+    margin-bottom: 20px;
+    flex-wrap: wrap;
+  }
+  .driver-nav-btn {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    padding: 8px 16px;
+    border-radius: 30px;
+    border: 1.5px solid var(--border);
+    background: var(--white);
+    font-family: 'DM Sans', sans-serif;
+    font-size: 12px;
+    font-weight: 500;
+    cursor: pointer;
+    transition: all 0.15s;
+    color: var(--text-muted);
+    white-space: nowrap;
+  }
+  .driver-nav-btn:hover { border-color: var(--navy); color: var(--navy); }
+  .driver-nav-btn.active { color: var(--white); border-color: transparent; }
+  .driver-nav-btn.d1.active { background: var(--d1); }
+  .driver-nav-btn.d2.active { background: var(--d2); }
+  .driver-nav-btn.d3.active { background: var(--d3); }
+  .driver-nav-btn.d4.active { background: var(--d4); }
+  .driver-nav-btn.d5.active { background: var(--d5); }
+  .nav-num {
+    width: 20px; height: 20px; border-radius: 50%;
+    display: flex; align-items: center; justify-content: center;
+    font-size: 10px; font-weight: 600; flex-shrink: 0;
+  }
+  .driver-nav-btn:not(.active) .nav-num { background: var(--gray-light); color: var(--gray); }
+  .driver-nav-btn.active .nav-num { background: rgba(255,255,255,0.25); color: var(--white); }
+
+  /* ── DRIVER CARDS ── */
+  .driver-card {
+    background: var(--white);
+    border: 1.5px solid var(--border);
+    border-radius: 16px;
+    overflow: hidden;
+    margin-bottom: 16px;
+    transition: box-shadow 0.2s;
+  }
+  .driver-card:hover { box-shadow: 0 6px 24px rgba(0,62,111,0.08); }
+
+  .driver-header {
+    padding: 28px 32px 24px;
+    cursor: pointer;
+    display: grid;
+    grid-template-columns: auto 1fr auto;
+    gap: 20px;
+    align-items: center;
+  }
+  .driver-header.d1 { background: var(--d1-light); border-bottom: 1.5px solid var(--d1-mid); }
+  .driver-header.d2 { background: var(--d2-light); border-bottom: 1.5px solid var(--d2-mid); }
+  .driver-header.d3 { background: var(--d3-light); border-bottom: 1.5px solid var(--d3-mid); }
+  .driver-header.d4 { background: var(--d4-light); border-bottom: 1.5px solid var(--d4-mid); }
+  .driver-header.d5 { background: var(--d5-light); border-bottom: 1.5px solid var(--d5-mid); }
+
+  .driver-num-badge {
+    width: 48px; height: 48px; border-radius: 50%;
+    display: flex; align-items: center; justify-content: center;
+    font-family: 'DM Serif Display', serif; font-size: 22px;
+    flex-shrink: 0;
+  }
+  .d1 .driver-num-badge { background: var(--d1); color: var(--white); }
+  .d2 .driver-num-badge { background: var(--d2); color: var(--white); }
+  .d3 .driver-num-badge { background: var(--d3); color: var(--white); }
+  .d4 .driver-num-badge { background: var(--d4); color: var(--white); }
+  .d5 .driver-num-badge { background: var(--d5); color: var(--white); }
+
+  .driver-header-text {}
+  .driver-label { font-size: 10px; font-weight: 600; letter-spacing: 2px; text-transform: uppercase; margin-bottom: 4px; }
+  .d1 .driver-label { color: var(--d1); }
+  .d2 .driver-label { color: var(--d2); }
+  .d3 .driver-label { color: var(--d3); }
+  .d4 .driver-label { color: var(--d4); }
+  .d5 .driver-label { color: var(--d5); }
+  .driver-name { font-family: 'DM Serif Display', serif; font-size: 22px; color: var(--text); line-height: 1.2; }
+  .driver-tagline { font-size: 13px; color: var(--text-muted); margin-top: 3px; line-height: 1.4; }
+
+  .driver-toggle { font-size: 20px; color: var(--text-muted); transition: transform 0.25s; flex-shrink: 0; user-select: none; }
+  .driver-card.open .driver-toggle { transform: rotate(180deg); }
+
+  /* ── DRIVER BODY ── */
+  .driver-body { display: none; padding: 0; }
+  .driver-card.open .driver-body { display: block; }
+
+  .driver-body-inner {
+    padding: 28px 32px;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 28px;
+  }
+  @media (max-width: 660px) { .driver-body-inner { grid-template-columns: 1fr; padding: 20px; } }
+
+  /* Impact meter */
+  .impact-meter { margin-bottom: 20px; }
+  .impact-label { font-size: 10px; font-weight: 600; letter-spacing: 1.5px; text-transform: uppercase; color: var(--text-muted); margin-bottom: 8px; }
+  .meter-track { height: 8px; background: var(--gray-mid); border-radius: 4px; overflow: hidden; }
+  .meter-fill { height: 100%; border-radius: 4px; transition: width 0.6s ease; }
+  .d1 .meter-fill { background: var(--d1); }
+  .d2 .meter-fill { background: var(--d2); }
+  .d3 .meter-fill { background: var(--d3); }
+  .d4 .meter-fill { background: var(--d4); }
+  .d5 .meter-fill { background: var(--d5); }
+  .meter-labels { display: flex; justify-content: space-between; font-size: 10px; color: var(--text-muted); margin-top: 4px; }
+
+  .section-title { font-size: 11px; font-weight: 600; letter-spacing: 1.5px; text-transform: uppercase; color: var(--text-muted); margin-bottom: 10px; padding-bottom: 6px; border-bottom: 2px solid var(--gray-mid); }
+
+  .driver-prose { font-size: 13.5px; color: var(--text-muted); line-height: 1.75; }
+  .driver-prose strong { color: var(--text); font-weight: 500; }
+  .driver-prose p + p { margin-top: 10px; }
+
+  /* Signal list */
+  .signal-list { list-style: none; }
+  .signal-list li {
+    font-size: 13px; color: var(--text-muted);
+    padding: 7px 0; border-bottom: 0.5px solid var(--gray-mid);
+    display: flex; align-items: flex-start; gap: 8px; line-height: 1.4;
+  }
+  .signal-list li:last-child { border-bottom: none; }
+  .sig-icon { flex-shrink: 0; font-size: 14px; margin-top: 1px; }
+
+  /* Value levers */
+  .lever-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 8px; }
+  .lever {
+    border-radius: 8px; padding: 10px 12px;
+    font-size: 12px; line-height: 1.4;
+    border: 1px solid;
+  }
+  .lever strong { display: block; font-size: 11px; font-weight: 600; margin-bottom: 2px; }
+  .d1 .lever { background: var(--d1-light); border-color: var(--d1-mid); color: var(--d1); }
+  .d2 .lever { background: var(--d2-light); border-color: var(--d2-mid); color: var(--d2); }
+  .d3 .lever { background: var(--d3-light); border-color: var(--d3-mid); color: var(--d3); }
+  .d4 .lever { background: var(--d4-light); border-color: var(--d4-mid); color: var(--d4); }
+  .d5 .lever { background: var(--d5-light); border-color: var(--d5-mid); color: var(--d5); }
+
+  /* CWP Take */
+  .driver-take {
+    grid-column: 1 / -1;
+    background: #f0f6e8;
+    border-left: 3px solid var(--green);
+    border-radius: 0 8px 8px 0;
+    padding: 14px 18px;
+    font-size: 13px; color: #2a4a10; line-height: 1.65;
+  }
+  .driver-take strong { font-weight: 600; }
+
+  /* ── VALUE PYRAMID ── */
+  .pyramid-wrap {
+    background: var(--white);
+    border: 1px solid var(--border);
+    border-radius: 14px;
+    padding: 28px;
+    margin-bottom: 28px;
+    text-align: center;
+  }
+  .pyramid-title { font-size: 10px; font-weight: 600; letter-spacing: 2px; text-transform: uppercase; color: var(--gray); margin-bottom: 20px; }
+  .pyramid { display: flex; flex-direction: column; align-items: center; gap: 6px; }
+  .pyramid-row {
+    display: flex; align-items: center; justify-content: center;
+    border-radius: 6px; color: var(--white);
+    padding: 10px 20px; font-size: 13px; font-weight: 500;
+    position: relative; cursor: default;
+    transition: transform 0.15s;
+  }
+  .pyramid-row:hover { transform: scale(1.02); }
+  .pyramid-row.r1 { width: 90%; background: var(--d1); }
+  .pyramid-row.r2 { width: 74%; background: var(--d2); }
+  .pyramid-row.r3 { width: 58%; background: var(--d3); }
+  .pyramid-row.r4 { width: 44%; background: var(--d4); }
+  .pyramid-row.r5 { width: 30%; background: var(--d5); }
+  .pyramid-row-num { position: absolute; left: 14px; font-family: 'DM Serif Display', serif; font-size: 15px; opacity: 0.7; }
+  .pyramid-note { font-size: 11px; color: var(--text-muted); margin-top: 14px; line-height: 1.6; max-width: 480px; margin-left: auto; margin-right: auto; }
+
+  /* ── MULTIPLIER CALLOUT ── */
+  .multiplier-row {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 12px;
+    margin-bottom: 28px;
+  }
+  @media (max-width: 600px) { .multiplier-row { grid-template-columns: 1fr; } }
+  .multiplier-card {
+    background: var(--white);
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    padding: 18px 20px;
+    text-align: center;
+  }
+  .mult-icon { font-size: 28px; margin-bottom: 8px; }
+  .mult-label { font-size: 10px; font-weight: 600; letter-spacing: 1.5px; text-transform: uppercase; color: var(--text-muted); margin-bottom: 6px; }
+  .mult-val { font-family: 'DM Serif Display', serif; font-size: 28px; color: var(--navy); line-height: 1; margin-bottom: 6px; }
+  .mult-desc { font-size: 12px; color: var(--text-muted); line-height: 1.5; }
+
+  /* ── FOOTER CTA ── */
+  .footer-cta { background: var(--navy); border-radius: 16px; padding: 36px 48px; display: flex; align-items: center; justify-content: space-between; gap: 24px; flex-wrap: wrap; }
+  .footer-eyebrow { font-size: 11px; font-weight: 600; letter-spacing: 2px; text-transform: uppercase; color: var(--green); margin-bottom: 8px; }
+  .footer-title { font-family: 'DM Serif Display', serif; font-size: 24px; color: var(--white); margin-bottom: 8px; }
+  .footer-sub { font-size: 13px; color: rgba(255,255,255,0.65); line-height: 1.6; max-width: 420px; }
+  .footer-book { flex-shrink: 0; padding: 14px 28px; background: var(--green); color: #152800; font-family: 'DM Sans', sans-serif; font-size: 14px; font-weight: 600; border: none; border-radius: 10px; cursor: pointer; text-decoration: none; display: inline-block; transition: background 0.15s, transform 0.1s; white-space: nowrap; }
+  .footer-book:hover { background: var(--green-dark); transform: translateY(-1px); }
+  .footer-note { text-align: center; font-size: 11px; color: var(--gray); margin-top: 24px; line-height: 1.6; }
+  .footer-note a { color: var(--navy); text-decoration: none; }
+
+  /* ── SECTION LABEL ── */
+  .section-label { font-size: 10px; font-weight: 600; letter-spacing: 2px; text-transform: uppercase; color: var(--gray); margin-bottom: 14px; }
+
+  /* ── ANIMATIONS ── */
+  .fade-up { opacity: 0; animation: fadeUp 0.4s ease forwards; }
+  .fade-up:nth-child(1) { animation-delay: 0.05s; }
+  .fade-up:nth-child(2) { animation-delay: 0.12s; }
+  .fade-up:nth-child(3) { animation-delay: 0.19s; }
+  .fade-up:nth-child(4) { animation-delay: 0.26s; }
+  .fade-up:nth-child(5) { animation-delay: 0.33s; }
+  @keyframes fadeUp { from { opacity: 0; transform: translateY(12px); } to { opacity: 1; transform: translateY(0); } }
+
+  @media (max-width: 600px) {
+    .hero { padding: 32px 24px 28px; }
+    .hero-title { font-size: 26px; }
+    .footer-cta { padding: 28px 24px; }
+    .driver-header { padding: 20px; gap: 14px; }
+    .lever-grid { grid-template-columns: 1fr; }
+  }
+</style>
+</head>
+<body>
+
+<div class="page-wrap">
+
+  <!-- HERO -->
+  <div class="hero">
+    <div class="hero-inner">
+      <div class="hero-eyebrow">Business Owner Exit Planning Guide</div>
+      <h1 class="hero-title">The 5 drivers of<br><em>business value</em></h1>
+      <p class="hero-sub">What buyers actually pay for — and what most owners don't realize is hurting their number until it's too late to do anything about it.</p>
+      <div class="hero-meta">
+        <span class="hero-brand">Cadence Wealth Partners</span>
+        <span class="hero-pill">Certified Exit Planning Advisor (CEPA) · Fee-only · Fiduciary</span>
+        <span class="hero-pill">Concord, NC</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- INTRO STATS -->
+  <div class="intro-callout">
+    <div>
+      <div class="intro-stat" style="margin-bottom: 12px;">
+        <div class="intro-stat-num">80%</div>
+        <div class="intro-stat-label">of a business owner's net worth is typically tied up in their business — yet most have no formal plan to get it out</div>
+      </div>
+      <div class="intro-stat">
+        <div class="intro-stat-num">2–4×</div>
+        <div class="intro-stat-label">the difference in exit multiples between businesses that have worked on their value drivers vs. those that haven't</div>
+      </div>
+    </div>
+    <div class="intro-prose">
+      <p>Most business owners think about value when it's time to sell. <strong>That's the wrong time.</strong> Value is built over years — through systems, relationships, financials, and people that make the business run with or without you.</p>
+      <p style="margin-top: 12px;">The Exit Planning Institute (EPI) framework identifies five core drivers that determine what a buyer will pay — and more importantly, what a buyer will <em>walk away from.</em> Understanding them now gives you time to fix what needs fixing before it shows up in due diligence.</p>
+      <p style="margin-top: 12px;"><strong>The goal isn't just a higher number. It's optionality</strong> — the ability to leave on your terms, to the right buyer, at the right time.</p>
+    </div>
+  </div>
+
+  <!-- PYRAMID -->
+  <div class="pyramid-wrap">
+    <div class="pyramid-title">The value driver pyramid — what buyers pay for</div>
+    <div class="pyramid">
+      <div class="pyramid-row r1"><span class="pyramid-row-num">1</span>Financial Performance</div>
+      <div class="pyramid-row r2"><span class="pyramid-row-num">2</span>Growth Potential</div>
+      <div class="pyramid-row r3"><span class="pyramid-row-num">3</span>Owner Dependence</div>
+      <div class="pyramid-row r4"><span class="pyramid-row-num">4</span>Customer Concentration</div>
+      <div class="pyramid-row r5"><span class="pyramid-row-num">5</span>Team &amp; Systems</div>
+    </div>
+    <div class="pyramid-note">Each layer supports the ones above it. A business with strong financials but total owner dependence will sell at a steep discount — or not at all. Click any driver below to explore it in depth.</div>
+  </div>
+
+  <!-- MULTIPLIER CALLOUT -->
+  <div class="multiplier-row">
+    <div class="multiplier-card">
+      <div class="mult-icon">📉</div>
+      <div class="mult-label">Weak value drivers</div>
+      <div class="mult-val">2–3×</div>
+      <div class="mult-desc">Typical EBITDA (Earnings Before Interest, Taxes, Depreciation, and Amortization) multiple for a business with unresolved risk factors and owner dependency</div>
+    </div>
+    <div class="multiplier-card">
+      <div class="mult-icon">📊</div>
+      <div class="mult-label">Average business</div>
+      <div class="mult-val">4–5×</div>
+      <div class="mult-desc">Market multiple for a solid business with decent financials and some transferable systems</div>
+    </div>
+    <div class="multiplier-card" style="border-color: #a8d46a; background: #f4fbea;">
+      <div class="mult-icon">📈</div>
+      <div class="mult-label">Strong value drivers</div>
+      <div class="mult-val" style="color: var(--d2);">6–8×+</div>
+      <div class="mult-desc">Premium multiple for businesses with documented systems, diversified revenue, and strong teams</div>
+    </div>
+  </div>
+
+  <!-- DRIVER NAVIGATION -->
+  <div class="section-label">Explore each driver</div>
+  <div class="driver-nav">
+    <button class="driver-nav-btn d1 active" onclick="navTo('d1', this)"><span class="nav-num">1</span>Financial Performance</button>
+    <button class="driver-nav-btn d2" onclick="navTo('d2', this)"><span class="nav-num">2</span>Growth Potential</button>
+    <button class="driver-nav-btn d3" onclick="navTo('d3', this)"><span class="nav-num">3</span>Owner Dependence</button>
+    <button class="driver-nav-btn d4" onclick="navTo('d4', this)"><span class="nav-num">4</span>Customer Concentration</button>
+    <button class="driver-nav-btn d5" onclick="navTo('d5', this)"><span class="nav-num">5</span>Team &amp; Systems</button>
+  </div>
+
+  <!-- ── DRIVER 1: FINANCIAL PERFORMANCE ── -->
+  <div class="driver-card open fade-up" id="card-d1">
+    <div class="driver-header d1" onclick="toggleDriver('d1')">
+      <div class="driver-num-badge">1</div>
+      <div class="driver-header-text">
+        <div class="driver-label">Driver 01</div>
+        <div class="driver-name">Financial Performance</div>
+        <div class="driver-tagline">The foundation — clean, consistent, growing numbers that a buyer can trust</div>
+      </div>
+      <div class="driver-toggle">⌄</div>
+    </div>
+    <div class="driver-body">
+      <div class="driver-body-inner">
+        <div>
+          <div class="impact-meter d1">
+            <div class="impact-label">Impact on valuation</div>
+            <div class="meter-track"><div class="meter-fill" style="width: 95%"></div></div>
+            <div class="meter-labels"><span>Minimal</span><span>Moderate</span><span>Critical</span></div>
+          </div>
+          <div class="section-title" style="margin-bottom: 10px;">What it means</div>
+          <div class="driver-prose">
+            <p>Financial performance is the starting point for every valuation conversation. Buyers and their advisors will tear through three to five years of financials looking for <strong>revenue trends, margin consistency, and earnings quality.</strong></p>
+            <p>It's not just about the top line. A buyer wants to see that profits are real, recurring, and not dependent on one-time events or owner perks run through the business. <strong>Adjusted EBITDA</strong> (Earnings Before Interest, Taxes, Depreciation, and Amortization) — normalized for owner-specific expenses — is typically the number that anchors the multiple.</p>
+            <p>Clean books, consistent growth, and predictable cash flow signal a business that can survive a transition. Inconsistent financials signal risk — and buyers price risk by lowering the multiple.</p>
+          </div>
+        </div>
+        <div>
+          <div class="section-title">What buyers look for</div>
+          <ul class="signal-list">
+            <li><span class="sig-icon">✅</span>3–5 years of consistent revenue growth</li>
+            <li><span class="sig-icon">✅</span>Stable or expanding gross margins</li>
+            <li><span class="sig-icon">✅</span>Normalized EBITDA — Earnings Before Interest, Taxes, Depreciation, and Amortization (addbacks properly documented)</li>
+            <li><span class="sig-icon">✅</span>Separation of personal and business expenses</li>
+            <li><span class="sig-icon">✅</span>Accrual-basis financials (not just cash basis)</li>
+            <li><span class="sig-icon">⚠️</span>Revenue concentration in one product or service line</li>
+            <li><span class="sig-icon">❌</span>Declining revenue or unexplained margin compression</li>
+            <li><span class="sig-icon">❌</span>Significant owner perks obscuring true profitability</li>
+            <li><span class="sig-icon">❌</span>Tax returns that don't reconcile to financial statements</li>
+          </ul>
+          <div style="margin-top: 16px;">
+            <div class="section-title">Value levers to pull now</div>
+            <div class="lever-grid d1">
+              <div class="lever"><strong>Clean up the books</strong>Move to accrual accounting and separate all personal expenses</div>
+              <div class="lever"><strong>Document addbacks</strong>Build a defensible EBITDA schedule 2–3 years before a sale</div>
+              <div class="lever"><strong>Diversify revenue</strong>Reduce dependence on any single product, service, or season</div>
+              <div class="lever"><strong>Improve margins</strong>Even 1–2% improvement compounds significantly in the multiple</div>
+            </div>
+          </div>
+        </div>
+        <div class="driver-take"><strong>The CWP take:</strong> Most blue-collar business owners run cash-basis books because it's simpler and their CPA set it up that way. That's fine for taxes — it's not fine for a sale. A buyer's Quality of Earnings (QoE) analysis will recast your financials regardless, and surprises in that process kill deals or crater multiples. The time to clean up your financials is at least two years before you plan to go to market.</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ── DRIVER 2: GROWTH POTENTIAL ── -->
+  <div class="driver-card fade-up" id="card-d2">
+    <div class="driver-header d2" onclick="toggleDriver('d2')">
+      <div class="driver-num-badge">2</div>
+      <div class="driver-header-text">
+        <div class="driver-label">Driver 02</div>
+        <div class="driver-name">Growth Potential</div>
+        <div class="driver-tagline">Buyers aren't just paying for what you built — they're paying for what comes next</div>
+      </div>
+      <div class="driver-toggle">⌄</div>
+    </div>
+    <div class="driver-body">
+      <div class="driver-body-inner">
+        <div>
+          <div class="impact-meter d2">
+            <div class="impact-label">Impact on valuation</div>
+            <div class="meter-track"><div class="meter-fill" style="width: 82%"></div></div>
+            <div class="meter-labels"><span>Minimal</span><span>Moderate</span><span>Critical</span></div>
+          </div>
+          <div class="section-title" style="margin-bottom: 10px;">What it means</div>
+          <div class="driver-prose">
+            <p>A buyer isn't acquiring your history — they're acquiring your future. <strong>Growth potential</strong> is about convincing a buyer that there's a clear, credible path to more revenue, more customers, or more margin after the transaction closes.</p>
+            <p>This can come from untapped geographic markets, an underserved customer segment, pricing power that hasn't been exercised, or recurring revenue that hasn't been formalized. <strong>The story matters as much as the numbers</strong> — a buyer needs to be able to see themselves capturing that growth.</p>
+            <p>Conversely, a business that appears to have hit its ceiling — maxed out on capacity with no plan to expand — will be valued on current earnings alone, with no premium for future potential.</p>
+          </div>
+        </div>
+        <div>
+          <div class="section-title">What buyers look for</div>
+          <ul class="signal-list">
+            <li><span class="sig-icon">✅</span>Documented pipeline or backlog of future work</li>
+            <li><span class="sig-icon">✅</span>Recurring or contracted revenue streams</li>
+            <li><span class="sig-icon">✅</span>Identifiable whitespace — markets not yet served</li>
+            <li><span class="sig-icon">✅</span>Scalable operations (revenue can grow without proportional cost)</li>
+            <li><span class="sig-icon">✅</span>Pricing power — room to raise rates without losing customers</li>
+            <li><span class="sig-icon">⚠️</span>Growth that requires significant capital investment</li>
+            <li><span class="sig-icon">❌</span>Revenue at capacity with no expansion plan</li>
+            <li><span class="sig-icon">❌</span>Declining market or obsolete service offering</li>
+          </ul>
+          <div style="margin-top: 16px;">
+            <div class="section-title">Value levers to pull now</div>
+            <div class="lever-grid d2">
+              <div class="lever"><strong>Build recurring revenue</strong>Service agreements, maintenance contracts, retainers</div>
+              <div class="lever"><strong>Document your pipeline</strong>A Customer Relationship Management (CRM) system with real data signals growth is measurable</div>
+              <div class="lever"><strong>Identify adjacent markets</strong>New geography, new customer type, new service line</div>
+              <div class="lever"><strong>Tell the growth story</strong>Buyers pay for narrative — know yours cold</div>
+            </div>
+          </div>
+        </div>
+        <div class="driver-take"><strong>The CWP take:</strong> The single highest-ROI move for most blue-collar business owners is converting one-time jobs into recurring service agreements. A roofing company with 200 maintenance contracts looks dramatically different to a buyer than one with 200 completed projects. Recurring revenue compresses risk and expands the multiple — sometimes by a full turn or more. If you don't have a recurring revenue component, that's the first growth conversation to have.</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ── DRIVER 3: OWNER DEPENDENCE ── -->
+  <div class="driver-card fade-up" id="card-d3">
+    <div class="driver-header d3" onclick="toggleDriver('d3')">
+      <div class="driver-num-badge">3</div>
+      <div class="driver-header-text">
+        <div class="driver-label">Driver 03</div>
+        <div class="driver-name">Owner Dependence</div>
+        <div class="driver-tagline">If the business can't run without you, a buyer isn't buying a business — they're buying a job</div>
+      </div>
+      <div class="driver-toggle">⌄</div>
+    </div>
+    <div class="driver-body">
+      <div class="driver-body-inner">
+        <div>
+          <div class="impact-meter d3">
+            <div class="impact-label">Impact on valuation</div>
+            <div class="meter-track"><div class="meter-fill" style="width: 90%"></div></div>
+            <div class="meter-labels"><span>Minimal</span><span>Moderate</span><span>Critical</span></div>
+          </div>
+          <div class="section-title" style="margin-bottom: 10px;">What it means</div>
+          <div class="driver-prose">
+            <p>Owner dependence is the most common — and most underestimated — value killer in small business exits. If you hold the key customer relationships, make all the decisions, carry the technical knowledge in your head, and are the face of the brand, <strong>your departure is a business disruption event.</strong></p>
+            <p>Buyers model risk. An owner-dependent business means a buyer has to either keep the owner around indefinitely (earn-out heavy structure, long transition period) or accept that a portion of revenue may leave with the owner. <strong>Either scenario reduces what they'll pay.</strong></p>
+            <p>The EPI framework frames this as "human capital" — the depth and breadth of talent in the organization beyond the owner. Building human capital takes years. It cannot be done in the months before a sale.</p>
+          </div>
+        </div>
+        <div>
+          <div class="section-title">Red flags in due diligence</div>
+          <ul class="signal-list">
+            <li><span class="sig-icon">❌</span>Owner is primary contact for top customers</li>
+            <li><span class="sig-icon">❌</span>No second-in-command who can run operations</li>
+            <li><span class="sig-icon">❌</span>Owner holds all vendor and supplier relationships</li>
+            <li><span class="sig-icon">❌</span>No written processes — knowledge lives in the owner's head</li>
+            <li><span class="sig-icon">❌</span>Owner works in the business daily rather than on it</li>
+            <li><span class="sig-icon">⚠️</span>Key employees without retention agreements</li>
+            <li><span class="sig-icon">✅</span>Management team that can operate independently for 30+ days</li>
+            <li><span class="sig-icon">✅</span>Customer relationships spread across multiple team members</li>
+          </ul>
+          <div style="margin-top: 16px;">
+            <div class="section-title">Value levers to pull now</div>
+            <div class="lever-grid d3">
+              <div class="lever"><strong>Identify a #2</strong>Develop or hire someone who can run daily operations</div>
+              <div class="lever"><strong>Transfer relationships</strong>Introduce key contacts to other team members now</div>
+              <div class="lever"><strong>Document everything</strong>Standard Operating Procedures (SOPs), playbooks, onboarding guides — write it down</div>
+              <div class="lever"><strong>Step back intentionally</strong>Take a 2-week vacation. If chaos ensues, you have work to do</div>
+            </div>
+          </div>
+        </div>
+        <div class="driver-take"><strong>The CWP take:</strong> We use a simple test with business owner clients: if you took 30 days completely off — no phone, no email — what happens to revenue? For most owners, the honest answer is uncomfortable. That discomfort is exactly what a buyer sees in due diligence. Reducing owner dependence is the longest lead-time item in exit planning. Five years is not too early to start. Two years before a sale is too late to fully fix it.</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ── DRIVER 4: CUSTOMER CONCENTRATION ── -->
+  <div class="driver-card fade-up" id="card-d4">
+    <div class="driver-header d4" onclick="toggleDriver('d4')">
+      <div class="driver-num-badge">4</div>
+      <div class="driver-header-text">
+        <div class="driver-label">Driver 04</div>
+        <div class="driver-name">Customer Concentration</div>
+        <div class="driver-tagline">One big customer feels like a win — until a buyer sees it as an existential risk</div>
+      </div>
+      <div class="driver-toggle">⌄</div>
+    </div>
+    <div class="driver-body">
+      <div class="driver-body-inner">
+        <div>
+          <div class="impact-meter d4">
+            <div class="impact-label">Impact on valuation</div>
+            <div class="meter-track"><div class="meter-fill" style="width: 75%"></div></div>
+            <div class="meter-labels"><span>Minimal</span><span>Moderate</span><span>Critical</span></div>
+          </div>
+          <div class="section-title" style="margin-bottom: 10px;">What it means</div>
+          <div class="driver-prose">
+            <p>Customer concentration risk is triggered when a single customer — or a small group of customers — represents a disproportionate share of revenue. The general threshold buyers use: <strong>if one customer represents more than 15–20% of revenue, it's a risk flag.</strong> Above 30%, it's often a deal-stopper or a significant price reduction.</p>
+            <p>The logic is simple: if that customer leaves after the acquisition — due to a relationship tied to the owner, a contract that doesn't transfer, or simply competitive dynamics — the buyer's investment thesis collapses. <strong>Buyers price that scenario into the offer.</strong></p>
+            <p>This applies to supplier concentration too — a business dependent on one or two suppliers for critical inputs carries similar risk.</p>
+          </div>
+        </div>
+        <div>
+          <div class="section-title">The concentration thresholds</div>
+          <ul class="signal-list">
+            <li><span class="sig-icon">✅</span>No single customer &gt;10% of revenue — clean</li>
+            <li><span class="sig-icon">⚠️</span>One customer at 15–20% — flagged, needs explanation</li>
+            <li><span class="sig-icon">⚠️</span>Top 3 customers represent &gt;50% — significant risk</li>
+            <li><span class="sig-icon">❌</span>One customer at 30%+ — expect escrow, earn-out, or price reduction</li>
+            <li><span class="sig-icon">❌</span>Customer relationship tied personally to the owner</li>
+            <li><span class="sig-icon">❌</span>No written contracts with major customers</li>
+            <li><span class="sig-icon">✅</span>Long-term contracts in place with transferability language</li>
+            <li><span class="sig-icon">✅</span>Diversified customer base across industries or geographies</li>
+          </ul>
+          <div style="margin-top: 16px;">
+            <div class="section-title">Value levers to pull now</div>
+            <div class="lever-grid d4">
+              <div class="lever"><strong>Actively grow smaller accounts</strong>Dilute concentration by growing the base, not shrinking the top</div>
+              <div class="lever"><strong>Formalize contracts</strong>Multi-year agreements with assignment clauses that survive a sale</div>
+              <div class="lever"><strong>Diversify by industry</strong>Serving multiple industries reduces systemic risk</div>
+              <div class="lever"><strong>Document retention history</strong>Showing 5+ year customer retention significantly reduces perceived risk</div>
+            </div>
+          </div>
+        </div>
+        <div class="driver-take"><strong>The CWP take:</strong> We've seen deals fall apart in due diligence because a buyer discovered that one customer represented 40% of revenue — and that customer's primary relationship was with the owner personally. The business was profitable, growing, and well-run. Didn't matter. Address concentration years before a sale, not weeks before. And get your major customer relationships into written, transferable contracts now.</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ── DRIVER 5: TEAM & SYSTEMS ── -->
+  <div class="driver-card fade-up" id="card-d5">
+    <div class="driver-header d5" onclick="toggleDriver('d5')">
+      <div class="driver-num-badge">5</div>
+      <div class="driver-header-text">
+        <div class="driver-label">Driver 05</div>
+        <div class="driver-name">Team &amp; Systems</div>
+        <div class="driver-tagline">A business that runs on people and processes — not personality — is worth substantially more</div>
+      </div>
+      <div class="driver-toggle">⌄</div>
+    </div>
+    <div class="driver-body">
+      <div class="driver-body-inner">
+        <div>
+          <div class="impact-meter d5">
+            <div class="impact-label">Impact on valuation</div>
+            <div class="meter-track"><div class="meter-fill" style="width: 70%"></div></div>
+            <div class="meter-labels"><span>Minimal</span><span>Moderate</span><span>Critical</span></div>
+          </div>
+          <div class="section-title" style="margin-bottom: 10px;">What it means</div>
+          <div class="driver-prose">
+            <p>Buyers are acquiring a system — not a collection of individuals. <strong>Structural capital</strong> (documented processes, technology, IP, and operational infrastructure) and <strong>human capital</strong> (the depth of your team) together determine how confidently a new owner can step in and run the business.</p>
+            <p>A business with strong systems can onboard a new owner, absorb key employee departures, and scale without reinventing the wheel each time. <strong>A business without systems requires the buyer to bring the expertise themselves</strong> — and they'll discount the price accordingly.</p>
+            <p>This includes technology: businesses running on spreadsheets and tribal knowledge are valued lower than those with proper Customer Relationship Management (CRM) systems, job management software, and financial dashboards that give real-time visibility into performance.</p>
+          </div>
+        </div>
+        <div>
+          <div class="section-title">What buyers look for</div>
+          <ul class="signal-list">
+            <li><span class="sig-icon">✅</span>Documented Standard Operating Procedures (SOPs) for core business functions</li>
+            <li><span class="sig-icon">✅</span>Customer Relationship Management (CRM) system with customer history and relationship data</li>
+            <li><span class="sig-icon">✅</span>Job management or Enterprise Resource Planning (ERP) system with real data</li>
+            <li><span class="sig-icon">✅</span>Key employee retention agreements in place</li>
+            <li><span class="sig-icon">✅</span>Clear org chart with defined roles and responsibilities</li>
+            <li><span class="sig-icon">⚠️</span>Strong team but no retention agreements</li>
+            <li><span class="sig-icon">❌</span>Operations depend on one or two key employees beyond the owner</li>
+            <li><span class="sig-icon">❌</span>No documented processes — everything is word-of-mouth</li>
+            <li><span class="sig-icon">❌</span>Technology is outdated or not integrated</li>
+          </ul>
+          <div style="margin-top: 16px;">
+            <div class="section-title">Value levers to pull now</div>
+            <div class="lever-grid d5">
+              <div class="lever"><strong>Document your processes</strong>Start with the 5 most critical functions — write them down</div>
+              <div class="lever"><strong>Implement a CRM (Customer Relationship Management system)</strong>Customer data that lives in the system, not in someone's head</div>
+              <div class="lever"><strong>Retention agreements</strong>Key employee agreements with stay bonuses tied to a transaction</div>
+              <div class="lever"><strong>Build your org chart</strong>Define roles formally — even if one person wears multiple hats today</div>
+            </div>
+          </div>
+        </div>
+        <div class="driver-take"><strong>The CWP take:</strong> The EPI curriculum frames this as "structural capital" — the part of the business that exists independent of any individual. Most blue-collar businesses have very little of it. The owner is the Customer Relationship Management (CRM) system. The foreman is the Standard Operating Procedure (SOP). The bookkeeper is the financial dashboard. That's not a business — that's a collection of jobs that happen to share a name. Buyers know the difference, and they price it accordingly. Building structural capital is an 18–36 month project. It's also one of the highest-ROI investments you can make before a sale.</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- FOOTER CTA -->
+  <div class="footer-cta">
+    <div>
+      <div class="footer-eyebrow">Ready to assess where you stand?</div>
+      <div class="footer-title">Let's score your value drivers.</div>
+      <p class="footer-sub">Knowing the five drivers is step one. Step two is an honest look at where your business stands on each one — and building a plan to move the needle before it's time to sell.</p>
+    </div>
+    <a class="footer-book" href="https://calendly.com/cadencewp/30min" target="_blank" rel="noopener">Book a free consultation →</a>
+  </div>
+
+  <div class="footer-note">
+    <p>This guide is for educational purposes only and does not constitute investment, legal, or business valuation advice.</p>
+    <p style="margin-top: 4px;">Cadence Wealth Partners · 845 Church St N, Suite 205, Concord, NC · <a href="https://cadencewealthpartners.com">cadencewealthpartners.com</a></p>
+  </div>
+
+</div>
+
+<script>
+  function toggleDriver(id) {
+    const card = document.getElementById('card-' + id);
+    const isOpen = card.classList.contains('open');
+    card.classList.toggle('open', !isOpen);
+    updateNav(id, !isOpen);
+  }
+
+  function navTo(id, btn) {
+    const card = document.getElementById('card-' + id);
+    const isOpen = card.classList.contains('open');
+
+    document.querySelectorAll('.driver-nav-btn').forEach(b => {
+      b.className = b.className.replace(/\bactive\b/, '').trim();
+    });
+    btn.classList.add('active');
+
+    if (!isOpen) {
+      card.classList.add('open');
+    }
+    setTimeout(() => card.scrollIntoView({ behavior: 'smooth', block: 'start' }), 50);
+  }
+
+  function updateNav(id, isOpen) {
+    const btn = document.querySelector(`.driver-nav-btn.${id}`);
+    if (btn) {
+      if (isOpen) btn.classList.add('active');
+      else btn.classList.remove('active');
+    }
+  }
+</script>
+
+</body>
+</html>
