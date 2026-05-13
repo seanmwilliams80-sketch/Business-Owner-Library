@@ -1,0 +1,895 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Qualified Plan Guide for Business Owners | Cadence Wealth Partners</title>
+<meta name="description" content="SIMPLE IRA, SEP-IRA, Solo 401(k), and 401(k) — which qualified plan is right for your business? A plain-English comparison from Cadence Wealth Partners.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=DM+Sans:opsz,wght@9..40,400;9..40,500;9..40,600&display=swap" rel="stylesheet">
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  :root {
+    --navy: #003E6F;
+    --navy-dark: #002d52;
+    --navy-light: #1a5a8c;
+    --green: #8DC63F;
+    --green-dark: #6fa030;
+    --green-light: #c4e08a;
+    --gray: #6D6E71;
+    --gray-light: #f4f4f2;
+    --gray-mid: #e8e8e5;
+    --white: #ffffff;
+    --text: #1a1a1a;
+    --text-muted: #5a5a5a;
+    --border: #ddddd8;
+  }
+
+  html { scroll-behavior: smooth; }
+
+  body {
+    font-family: 'DM Sans', sans-serif;
+    color: var(--text);
+    background: #f7f6f2;
+    line-height: 1.6;
+    min-height: 100vh;
+  }
+
+  /* ── PAGE LAYOUT ── */
+  .page-wrap {
+    max-width: 960px;
+    margin: 0 auto;
+    padding: 40px 20px 60px;
+  }
+
+  /* ── HEADER ── */
+  .hero {
+    background: var(--navy);
+    border-radius: 16px;
+    padding: 48px 48px 40px;
+    margin-bottom: 32px;
+    position: relative;
+    overflow: hidden;
+  }
+  .hero::before {
+    content: '';
+    position: absolute;
+    top: -60px; right: -60px;
+    width: 260px; height: 260px;
+    border-radius: 50%;
+    background: rgba(141,198,63,0.12);
+  }
+  .hero::after {
+    content: '';
+    position: absolute;
+    bottom: -40px; right: 80px;
+    width: 140px; height: 140px;
+    border-radius: 50%;
+    background: rgba(141,198,63,0.07);
+  }
+  .hero-inner { position: relative; z-index: 1; }
+  .hero-eyebrow {
+    font-size: 11px;
+    font-weight: 600;
+    letter-spacing: 2.5px;
+    text-transform: uppercase;
+    color: var(--green);
+    margin-bottom: 10px;
+  }
+  .hero-title {
+    font-family: 'DM Serif Display', serif;
+    font-size: 36px;
+    line-height: 1.2;
+    color: var(--white);
+    margin-bottom: 14px;
+  }
+  .hero-title em { font-style: italic; color: #acd470; }
+  .hero-sub {
+    font-size: 15px;
+    color: rgba(255,255,255,0.72);
+    max-width: 560px;
+    line-height: 1.65;
+    margin-bottom: 28px;
+  }
+  .hero-meta {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    flex-wrap: wrap;
+  }
+  .hero-brand {
+    font-family: 'DM Serif Display', serif;
+    font-size: 13px;
+    color: rgba(255,255,255,0.45);
+    letter-spacing: 0.3px;
+  }
+  .hero-pill {
+    font-size: 11px;
+    padding: 4px 12px;
+    border-radius: 20px;
+    background: rgba(255,255,255,0.1);
+    color: rgba(255,255,255,0.65);
+    border: 0.5px solid rgba(255,255,255,0.2);
+    letter-spacing: 0.5px;
+  }
+
+  /* ── SECTION LABEL ── */
+  .section-label {
+    font-size: 10px;
+    font-weight: 600;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    color: var(--gray);
+    margin-bottom: 14px;
+  }
+
+  /* ── PLAN CARDS ── */
+  .cards-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 12px;
+    margin-bottom: 28px;
+  }
+
+  @media (max-width: 720px) {
+    .cards-grid { grid-template-columns: 1fr 1fr; }
+    .hero { padding: 32px 24px 28px; }
+    .hero-title { font-size: 26px; }
+    .compare-table th, .compare-table td { font-size: 11px; padding: 7px 6px; }
+  }
+  @media (max-width: 480px) {
+    .cards-grid { grid-template-columns: 1fr; }
+  }
+
+  .plan-card {
+    background: var(--white);
+    border: 1px solid var(--border);
+    border-radius: 14px;
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    cursor: pointer;
+    transition: transform 0.18s ease, box-shadow 0.18s ease, border-color 0.18s ease;
+    position: relative;
+  }
+  .plan-card:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 24px rgba(0,62,111,0.1);
+    border-color: #b0c8dc;
+  }
+  .plan-card.active {
+    border-color: var(--navy);
+    box-shadow: 0 0 0 3px rgba(0,62,111,0.12);
+  }
+  .plan-card.featured { border-color: var(--navy); border-width: 2px; }
+  .plan-card.featured:hover { box-shadow: 0 8px 24px rgba(0,62,111,0.18); }
+
+  .plan-badge {
+    display: inline-block;
+    font-size: 10px;
+    font-weight: 600;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    padding: 3px 10px;
+    border-radius: 20px;
+  }
+  .badge-green { background: #e6f4cc; color: #3a6b0f; }
+  .badge-amber { background: #fef3d8; color: #6b3e08; }
+  .badge-blue  { background: #daeaf8; color: #0c3f6e; }
+  .badge-navy  { background: var(--navy); color: var(--white); }
+
+  .plan-name {
+    font-family: 'DM Serif Display', serif;
+    font-size: 20px;
+    color: var(--text);
+    line-height: 1.1;
+  }
+  .plan-full {
+    font-size: 11px;
+    color: var(--text-muted);
+    line-height: 1.4;
+    margin-top: -6px;
+  }
+
+  .plan-limit {
+    background: var(--gray-light);
+    border-radius: 8px;
+    padding: 12px 14px;
+  }
+  .limit-label {
+    font-size: 10px;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    color: var(--gray);
+    margin-bottom: 2px;
+  }
+  .limit-val {
+    font-family: 'DM Serif Display', serif;
+    font-size: 22px;
+    color: var(--navy);
+  }
+  .limit-note { font-size: 10px; color: var(--text-muted); margin-top: 2px; }
+
+  .plan-specs {
+    list-style: none;
+    flex: 1;
+  }
+  .plan-specs li {
+    font-size: 12px;
+    color: var(--text-muted);
+    padding: 5px 0;
+    border-bottom: 0.5px solid var(--gray-mid);
+    display: flex;
+    align-items: flex-start;
+    gap: 7px;
+    line-height: 1.4;
+  }
+  .plan-specs li:last-child { border-bottom: none; }
+  .dot-green {
+    width: 5px; height: 5px;
+    border-radius: 50%;
+    background: var(--green);
+    flex-shrink: 0;
+    margin-top: 5px;
+  }
+
+  .card-cta {
+    margin-top: auto;
+    padding-top: 4px;
+  }
+  .btn-outline {
+    width: 100%;
+    padding: 9px 12px;
+    border: 1px solid var(--navy);
+    border-radius: 8px;
+    background: transparent;
+    color: var(--navy);
+    font-family: 'DM Sans', sans-serif;
+    font-size: 12px;
+    font-weight: 500;
+    cursor: pointer;
+    transition: background 0.15s, color 0.15s;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 5px;
+  }
+  .btn-outline:hover { background: var(--navy); color: var(--white); }
+  .btn-solid {
+    width: 100%;
+    padding: 9px 12px;
+    border: none;
+    border-radius: 8px;
+    background: var(--navy);
+    color: var(--white);
+    font-family: 'DM Sans', sans-serif;
+    font-size: 12px;
+    font-weight: 500;
+    cursor: pointer;
+    transition: background 0.15s;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 5px;
+  }
+  .btn-solid:hover { background: var(--navy-dark); }
+
+  /* chevron */
+  .chevron {
+    display: inline-block;
+    transition: transform 0.25s ease;
+    font-size: 14px;
+  }
+  .plan-card.active .chevron { transform: rotate(180deg); }
+
+  /* ── DETAIL PANELS ── */
+  .detail-panel {
+    background: var(--white);
+    border: 1px solid var(--border);
+    border-radius: 14px;
+    overflow: hidden;
+    margin-bottom: 12px;
+    display: none;
+    animation: slideDown 0.25s ease;
+  }
+  .detail-panel.open { display: block; }
+
+  @keyframes slideDown {
+    from { opacity: 0; transform: translateY(-8px); }
+    to   { opacity: 1; transform: translateY(0); }
+  }
+
+  .panel-header {
+    background: var(--navy);
+    padding: 20px 28px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+  .panel-header-left {}
+  .panel-plan-name {
+    font-family: 'DM Serif Display', serif;
+    font-size: 22px;
+    color: var(--white);
+  }
+  .panel-plan-sub { font-size: 12px; color: rgba(255,255,255,0.6); margin-top: 2px; }
+  .panel-limit-badge {
+    background: var(--green);
+    color: #1a3a00;
+    font-family: 'DM Serif Display', serif;
+    font-size: 20px;
+    padding: 8px 18px;
+    border-radius: 30px;
+    white-space: nowrap;
+  }
+
+  .panel-body {
+    padding: 28px;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 24px;
+  }
+  @media (max-width: 600px) { .panel-body { grid-template-columns: 1fr; } }
+
+  .panel-section-title {
+    font-size: 11px;
+    font-weight: 600;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+    color: var(--navy);
+    margin-bottom: 10px;
+    padding-bottom: 6px;
+    border-bottom: 2px solid var(--green);
+    display: inline-block;
+  }
+
+  .panel-prose {
+    font-size: 14px;
+    color: var(--text-muted);
+    line-height: 1.7;
+  }
+  .panel-prose strong { color: var(--text); font-weight: 500; }
+
+  .fact-list { list-style: none; }
+  .fact-list li {
+    font-size: 13px;
+    color: var(--text-muted);
+    padding: 7px 0;
+    border-bottom: 0.5px solid var(--gray-mid);
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    gap: 12px;
+    line-height: 1.4;
+  }
+  .fact-list li:last-child { border-bottom: none; }
+  .fact-key { font-weight: 500; color: var(--text); font-size: 12px; flex-shrink: 0; }
+  .fact-val { text-align: right; font-size: 12px; }
+  .yes { color: #3a6b0f; font-weight: 500; }
+  .no  { color: #8b2020; font-weight: 500; }
+
+  .panel-insight {
+    background: #f0f6e8;
+    border-left: 3px solid var(--green);
+    border-radius: 0 8px 8px 0;
+    padding: 14px 16px;
+    font-size: 13px;
+    color: #2a4a10;
+    line-height: 1.6;
+    margin-top: 16px;
+    grid-column: 1 / -1;
+  }
+  .panel-insight strong { font-weight: 600; }
+
+  /* ── COMPARISON TABLE ── */
+  .compare-wrap {
+    background: var(--white);
+    border: 1px solid var(--border);
+    border-radius: 14px;
+    padding: 24px;
+    margin-bottom: 28px;
+    overflow-x: auto;
+  }
+  .compare-title {
+    font-size: 10px;
+    font-weight: 600;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    color: var(--gray);
+    margin-bottom: 16px;
+  }
+  .compare-table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 12.5px;
+    table-layout: fixed;
+    min-width: 560px;
+  }
+  .compare-table th {
+    text-align: left;
+    padding: 8px 10px;
+    font-weight: 600;
+    font-size: 11px;
+    color: var(--text-muted);
+    border-bottom: 1px solid var(--border);
+    background: var(--gray-light);
+  }
+  .compare-table th:first-child { border-radius: 6px 0 0 6px; width: 22%; }
+  .compare-table th:last-child { border-radius: 0 6px 6px 0; background: #e8f0f8; color: var(--navy); }
+  .compare-table td {
+    padding: 8px 10px;
+    border-bottom: 0.5px solid var(--gray-mid);
+    color: var(--text);
+    vertical-align: top;
+    line-height: 1.4;
+  }
+  .compare-table tr:last-child td { border-bottom: none; }
+  .compare-table td:first-child { font-weight: 500; color: var(--text-muted); font-size: 11px; }
+  .compare-table td:last-child { background: rgba(0,62,111,0.03); }
+  .compare-table tr:hover td { background: #f9f8f5; }
+  .compare-table tr:hover td:last-child { background: rgba(0,62,111,0.06); }
+
+  /* ── FOOTER CTA ── */
+  .footer-cta {
+    background: var(--navy);
+    border-radius: 16px;
+    padding: 36px 48px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 24px;
+    flex-wrap: wrap;
+  }
+  .footer-left {}
+  .footer-eyebrow {
+    font-size: 11px;
+    font-weight: 600;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    color: var(--green);
+    margin-bottom: 8px;
+  }
+  .footer-title {
+    font-family: 'DM Serif Display', serif;
+    font-size: 24px;
+    color: var(--white);
+    margin-bottom: 8px;
+    line-height: 1.2;
+  }
+  .footer-sub { font-size: 13px; color: rgba(255,255,255,0.65); line-height: 1.6; max-width: 420px; }
+  .footer-book {
+    flex-shrink: 0;
+    padding: 14px 28px;
+    background: var(--green);
+    color: #152800;
+    font-family: 'DM Sans', sans-serif;
+    font-size: 14px;
+    font-weight: 600;
+    border: none;
+    border-radius: 10px;
+    cursor: pointer;
+    text-decoration: none;
+    display: inline-block;
+    transition: background 0.15s, transform 0.1s;
+    white-space: nowrap;
+  }
+  .footer-book:hover { background: var(--green-dark); transform: translateY(-1px); }
+
+  .footer-note {
+    text-align: center;
+    font-size: 11px;
+    color: var(--gray);
+    margin-top: 24px;
+    line-height: 1.6;
+  }
+  .footer-note a { color: var(--navy); text-decoration: none; }
+  .footer-note a:hover { text-decoration: underline; }
+
+  /* ── ANIMATIONS ── */
+  .fade-up {
+    opacity: 0;
+    transform: translateY(16px);
+    animation: fadeUp 0.5s ease forwards;
+  }
+  .fade-up:nth-child(1) { animation-delay: 0.05s; }
+  .fade-up:nth-child(2) { animation-delay: 0.12s; }
+  .fade-up:nth-child(3) { animation-delay: 0.19s; }
+  .fade-up:nth-child(4) { animation-delay: 0.26s; }
+  @keyframes fadeUp {
+    to { opacity: 1; transform: translateY(0); }
+  }
+</style>
+</head>
+<body>
+
+<div class="page-wrap">
+
+  <!-- HERO -->
+  <div class="hero">
+    <div class="hero-inner">
+      <div class="hero-eyebrow">Business Owner Planning Guide · 2025</div>
+      <h1 class="hero-title">Which qualified plan fits<br><em>your</em> business?</h1>
+      <p class="hero-sub">Contribution limits, eligibility rules, and the real trade-offs — so you can stop leaving tax-advantaged dollars on the table. Click any plan to learn more.</p>
+      <div class="hero-meta">
+        <span class="hero-brand">Cadence Wealth Partners</span>
+        <span class="hero-pill">Fee-only · Fiduciary</span>
+        <span class="hero-pill">2025 Limits</span>
+        <span class="hero-pill">Concord, NC</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- PLAN CARDS -->
+  <div class="section-label">Four plans — choose the one that fits</div>
+  <div class="cards-grid">
+
+    <div class="plan-card fade-up" onclick="togglePanel('simple')">
+      <span class="plan-badge badge-green">Simple to Start</span>
+      <div>
+        <div class="plan-name">SIMPLE IRA</div>
+        <div class="plan-full">Savings Incentive Match Plan for Employees</div>
+      </div>
+      <div class="plan-limit">
+        <div class="limit-label">Employee Deferral</div>
+        <div class="limit-val">$16,500</div>
+        <div class="limit-note">+$3,500 catch-up age 50+</div>
+      </div>
+      <ul class="plan-specs">
+        <li><span class="dot-green"></span>≤100 employees</li>
+        <li><span class="dot-green"></span>Required employer match</li>
+        <li><span class="dot-green"></span>No annual IRS filing</li>
+        <li><span class="dot-green"></span>Low admin cost</li>
+      </ul>
+      <div class="card-cta">
+        <button class="btn-outline">Learn more <span class="chevron">›</span></button>
+      </div>
+    </div>
+
+    <div class="plan-card fade-up" onclick="togglePanel('sep')">
+      <span class="plan-badge badge-amber">Owner Friendly</span>
+      <div>
+        <div class="plan-name">SEP-IRA</div>
+        <div class="plan-full">Simplified Employee Pension</div>
+      </div>
+      <div class="plan-limit">
+        <div class="limit-label">Total Contribution</div>
+        <div class="limit-val">$70,000</div>
+        <div class="limit-note">25% of comp, whichever is less</div>
+      </div>
+      <ul class="plan-specs">
+        <li><span class="dot-green"></span>Employer contributions only</li>
+        <li><span class="dot-green"></span>Variable income friendly</li>
+        <li><span class="dot-green"></span>Fund up to tax deadline</li>
+        <li><span class="dot-green"></span>Minimal paperwork</li>
+      </ul>
+      <div class="card-cta">
+        <button class="btn-outline">Learn more <span class="chevron">›</span></button>
+      </div>
+    </div>
+
+    <div class="plan-card fade-up" onclick="togglePanel('solo')">
+      <span class="plan-badge badge-blue">Solo Operator</span>
+      <div>
+        <div class="plan-name">Solo 401(k)</div>
+        <div class="plan-full">Individual / One-Participant 401(k)</div>
+      </div>
+      <div class="plan-limit">
+        <div class="limit-label">Total Contribution</div>
+        <div class="limit-val">$70,000</div>
+        <div class="limit-note">$77,500 with catch-up age 50+</div>
+      </div>
+      <ul class="plan-specs">
+        <li><span class="dot-green"></span>Owner only — no W-2 employees</li>
+        <li><span class="dot-green"></span>Roth option available</li>
+        <li><span class="dot-green"></span>Loan provisions</li>
+        <li><span class="dot-green"></span>Dual contribution buckets</li>
+      </ul>
+      <div class="card-cta">
+        <button class="btn-outline">Learn more <span class="chevron">›</span></button>
+      </div>
+    </div>
+
+    <div class="plan-card featured fade-up" onclick="togglePanel('fourk')">
+      <span class="plan-badge badge-navy">Max Savings</span>
+      <div>
+        <div class="plan-name">401(k)</div>
+        <div class="plan-full">Traditional · Safe Harbor · Profit Sharing</div>
+      </div>
+      <div class="plan-limit">
+        <div class="limit-label">Total Contribution</div>
+        <div class="limit-val">$70,000</div>
+        <div class="limit-note">$77,500 with catch-up age 50+</div>
+      </div>
+      <ul class="plan-specs">
+        <li><span class="dot-green"></span>Any team size</li>
+        <li><span class="dot-green"></span>Roth + Traditional</li>
+        <li><span class="dot-green"></span>Profit sharing flexibility</li>
+        <li><span class="dot-green"></span>Safe Harbor option</li>
+      </ul>
+      <div class="card-cta">
+        <button class="btn-solid">Learn more <span class="chevron">›</span></button>
+      </div>
+    </div>
+
+  </div>
+
+  <!-- DETAIL PANELS -->
+
+  <div class="detail-panel" id="panel-simple">
+    <div class="panel-header">
+      <div class="panel-header-left">
+        <div class="panel-plan-name">SIMPLE IRA</div>
+        <div class="panel-plan-sub">Savings Incentive Match Plan for Employees</div>
+      </div>
+      <div class="panel-limit-badge">Up to $16,500</div>
+    </div>
+    <div class="panel-body">
+      <div>
+        <div class="panel-section-title">What it is</div>
+        <p class="panel-prose">The SIMPLE IRA is exactly what the name suggests — the lowest-friction way to offer a retirement benefit to a small team. Employees make salary deferrals and you, as the employer, match them. It works like a scaled-down 401(k) without the annual testing, plan documents, or administrative overhead.</p>
+        <p class="panel-prose" style="margin-top: 12px;">The employer match is <strong>required</strong> — either a dollar-for-dollar match up to 3% of compensation, or a flat 2% contribution for all eligible employees regardless of whether they participate. The 3% match is most common because it only triggers when the employee contributes.</p>
+      </div>
+      <div>
+        <div class="panel-section-title">Key facts</div>
+        <ul class="fact-list">
+          <li><span class="fact-key">2025 employee deferral</span><span class="fact-val">$16,500</span></li>
+          <li><span class="fact-key">Catch-up (age 50+)</span><span class="fact-val">+$3,500</span></li>
+          <li><span class="fact-key">Enhanced catch-up (60–63)</span><span class="fact-val">+$5,250</span></li>
+          <li><span class="fact-key">Employer match required</span><span class="fact-val yes">Yes</span></li>
+          <li><span class="fact-key">Roth option</span><span class="fact-val no">No</span></li>
+          <li><span class="fact-key">Loan provisions</span><span class="fact-val no">No</span></li>
+          <li><span class="fact-key">Annual Form 5500</span><span class="fact-val no">Not required</span></li>
+          <li><span class="fact-key">Deadline to open</span><span class="fact-val">October 1 of current year</span></li>
+          <li><span class="fact-key">Can run alongside another plan</span><span class="fact-val no">No</span></li>
+          <li><span class="fact-key">Early withdrawal penalty</span><span class="fact-val">25% within first 2 years</span></li>
+        </ul>
+      </div>
+      <div class="panel-insight">
+        <strong>The CWP take:</strong> The SIMPLE is a great first step for a small business that wants to offer something to employees without blowing up the admin budget. The catch: once you're profitable and the owner wants to shelter more income, the $16,500 ceiling becomes a ceiling real fast. Most clients grow out of it — and the 2-year restriction on moving funds complicates transitions. We typically use it as a bridge, not a destination.
+      </div>
+    </div>
+  </div>
+
+  <div class="detail-panel" id="panel-sep">
+    <div class="panel-header">
+      <div class="panel-header-left">
+        <div class="panel-plan-name">SEP-IRA</div>
+        <div class="panel-plan-sub">Simplified Employee Pension</div>
+      </div>
+      <div class="panel-limit-badge">Up to $70,000</div>
+    </div>
+    <div class="panel-body">
+      <div>
+        <div class="panel-section-title">What it is</div>
+        <p class="panel-prose">The SEP-IRA is the workhorse plan for self-employed owners and small businesses with variable income. You contribute as the employer only — up to 25% of compensation (or 20% of net self-employment income), capped at $70,000 in 2025. No employee salary deferrals.</p>
+        <p class="panel-prose" style="margin-top: 12px;">The big advantage: flexibility. You decide each year whether to contribute and how much. No minimum. No commitment. And you can open and fund a SEP as late as your tax filing deadline <strong>including extensions</strong> — giving a sole proprietor until October 15 to fund the prior year's plan.</p>
+        <p class="panel-prose" style="margin-top: 12px;">The catch: whatever percentage you contribute for yourself must be contributed for every eligible employee — no exceptions. If you put in 20%, you owe 20% for your whole crew. That math changes the calculus quickly as headcount grows.</p>
+      </div>
+      <div>
+        <div class="panel-section-title">Key facts</div>
+        <ul class="fact-list">
+          <li><span class="fact-key">2025 max contribution</span><span class="fact-val">$70,000</span></li>
+          <li><span class="fact-key">% of comp limit</span><span class="fact-val">25% (W-2) / 20% (SE)</span></li>
+          <li><span class="fact-key">Catch-up contributions</span><span class="fact-val no">Not available</span></li>
+          <li><span class="fact-key">Employee deferrals</span><span class="fact-val no">Employer only</span></li>
+          <li><span class="fact-key">Roth option</span><span class="fact-val no">No</span></li>
+          <li><span class="fact-key">Loan provisions</span><span class="fact-val no">No</span></li>
+          <li><span class="fact-key">Annual Form 5500</span><span class="fact-val no">Not required</span></li>
+          <li><span class="fact-key">Deadline to open / fund</span><span class="fact-val">Tax deadline + extensions</span></li>
+          <li><span class="fact-key">Equal % required for all eligible employees</span><span class="fact-val no">Yes — required</span></li>
+        </ul>
+      </div>
+      <div class="panel-insight">
+        <strong>The CWP take:</strong> For a solo operator or a business with very few long-tenured employees, the SEP is hard to beat. Massive contribution potential, zero administrative burden, and maximum filing flexibility. But the pro-rata rule is a real cost center once you have employees — at that point a Safe Harbor 401(k) almost always makes more financial sense. And if you're 50+ and want to maximize pre-retirement savings, the absence of catch-up contributions is a meaningful limitation the Solo 401(k) solves.
+      </div>
+    </div>
+  </div>
+
+  <div class="detail-panel" id="panel-solo">
+    <div class="panel-header">
+      <div class="panel-header-left">
+        <div class="panel-plan-name">Solo 401(k)</div>
+        <div class="panel-plan-sub">Individual / One-Participant 401(k)</div>
+      </div>
+      <div class="panel-limit-badge">Up to $70,000</div>
+    </div>
+    <div class="panel-body">
+      <div>
+        <div class="panel-section-title">What it is</div>
+        <p class="panel-prose">The Solo 401(k) is built for the self-employed owner with no W-2 employees (a spouse on payroll is the one exception). It functions exactly like a full 401(k) — you wear both hats, making contributions as both employee and employer, which is how you can reach the same $70,000 ceiling as larger plans on a much smaller income.</p>
+        <p class="panel-prose" style="margin-top: 12px;">As the "employee," you can defer up to $23,500 of your compensation (pre-tax or Roth). As the "employer," you can contribute an additional 25% of W-2 compensation or 20% of net self-employment income. Those two buckets stack — which gives a solo operator dramatically more savings power than a SEP at lower income levels.</p>
+        <p class="panel-prose" style="margin-top: 12px;"><strong>One hard rule:</strong> the moment you hire a W-2 employee (other than a spouse), the plan must be converted to a traditional 401(k). Plan for it.</p>
+      </div>
+      <div>
+        <div class="panel-section-title">Key facts</div>
+        <ul class="fact-list">
+          <li><span class="fact-key">2025 employee deferral</span><span class="fact-val">$23,500</span></li>
+          <li><span class="fact-key">Total max (employee + employer)</span><span class="fact-val">$70,000</span></li>
+          <li><span class="fact-key">Catch-up (age 50+)</span><span class="fact-val">+$7,500 → $77,500</span></li>
+          <li><span class="fact-key">Roth option</span><span class="fact-val yes">Yes</span></li>
+          <li><span class="fact-key">Loan provisions</span><span class="fact-val yes">Yes</span></li>
+          <li><span class="fact-key">Annual Form 5500</span><span class="fact-val">Required above $250k in assets</span></li>
+          <li><span class="fact-key">Deadline to open</span><span class="fact-val">December 31 of current year</span></li>
+          <li><span class="fact-key">Deadline to fund (employee)</span><span class="fact-val">December 31</span></li>
+          <li><span class="fact-key">Deadline to fund (employer)</span><span class="fact-val">Tax deadline + extensions</span></li>
+          <li><span class="fact-key">Eligible if you have W-2 employees</span><span class="fact-val no">No</span></li>
+        </ul>
+      </div>
+      <div class="panel-insight">
+        <strong>The CWP take:</strong> The Solo 401(k) is a seriously underutilized tool. At incomes below ~$140,000, it allows higher contributions than a SEP-IRA — because the flat employee deferral of $23,500 doesn't scale with income the way the SEP's 25% does. Add the Roth option, loan provisions, and catch-up contributions, and you have a plan that punches well above its weight for sole operators building toward an exit.
+      </div>
+    </div>
+  </div>
+
+  <div class="detail-panel" id="panel-fourk">
+    <div class="panel-header">
+      <div class="panel-header-left">
+        <div class="panel-plan-name">401(k)</div>
+        <div class="panel-plan-sub">Traditional · Safe Harbor · Profit Sharing</div>
+      </div>
+      <div class="panel-limit-badge">Up to $70,000</div>
+    </div>
+    <div class="panel-body">
+      <div>
+        <div class="panel-section-title">What it is</div>
+        <p class="panel-prose">The 401(k) is the gold standard for business owners serious about maximizing retirement savings — and serious about using the plan as a strategic business tool. It's the only plan that scales cleanly from 5 employees to 500, accommodates both Roth and traditional contributions, and can be paired with a profit-sharing component that dramatically increases the owner's contribution ceiling.</p>
+        <p class="panel-prose" style="margin-top: 12px;">A <strong>Safe Harbor</strong> design eliminates the annual nondiscrimination testing (ADP/ACP tests) that can limit how much a business owner and highly compensated employees can defer. In exchange, you commit to a minimum employer contribution — typically a 3% match or 4% non-elective. For most profitable businesses, this trade is well worth it.</p>
+        <p class="panel-prose" style="margin-top: 12px;"><strong>Profit sharing</strong> adds a discretionary employer contribution on top of employee deferrals — allowing the total to reach $70,000 in 2025 — and can be structured to favor the owner through age-weighted or cross-tested plan design.</p>
+      </div>
+      <div>
+        <div class="panel-section-title">Key facts</div>
+        <ul class="fact-list">
+          <li><span class="fact-key">2025 employee deferral</span><span class="fact-val">$23,500</span></li>
+          <li><span class="fact-key">Total max (all sources)</span><span class="fact-val">$70,000</span></li>
+          <li><span class="fact-key">Catch-up (age 50+)</span><span class="fact-val">+$7,500 → $77,500</span></li>
+          <li><span class="fact-key">Roth option</span><span class="fact-val yes">Yes</span></li>
+          <li><span class="fact-key">Loan provisions</span><span class="fact-val yes">Yes</span></li>
+          <li><span class="fact-key">Annual Form 5500</span><span class="fact-val">Required</span></li>
+          <li><span class="fact-key">Safe Harbor available</span><span class="fact-val yes">Yes — eliminates ADP/ACP testing</span></li>
+          <li><span class="fact-key">Profit sharing</span><span class="fact-val yes">Yes — discretionary</span></li>
+          <li><span class="fact-key">In-plan Roth conversion</span><span class="fact-val yes">Yes</span></li>
+          <li><span class="fact-key">Deadline to open</span><span class="fact-val">December 31 of current year</span></li>
+        </ul>
+      </div>
+      <div class="panel-insight">
+        <strong>The CWP take:</strong> For a growing business — especially one thinking about an eventual exit — the 401(k) is where the planning gets interesting. Plan design choices made today affect how much the owner can shelter, what the business looks like to a buyer, and how you structure compensation in the years leading up to a sale. This isn't just a retirement account; it's a tax and exit planning lever. If you're generating real profit and have even a handful of employees, the conversation starts here.
+      </div>
+    </div>
+  </div>
+
+  <!-- COMPARISON TABLE -->
+  <div class="compare-wrap">
+    <div class="compare-title">Side-by-side snapshot</div>
+    <table class="compare-table">
+      <thead>
+        <tr>
+          <th></th>
+          <th>SIMPLE IRA</th>
+          <th>SEP-IRA</th>
+          <th>Solo 401(k)</th>
+          <th>401(k)</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>Max contribution (2025)</td>
+          <td>$16,500 employee</td>
+          <td>$70,000 employer</td>
+          <td>$70,000 combined</td>
+          <td>$70,000 combined</td>
+        </tr>
+        <tr>
+          <td>Catch-up age 50+</td>
+          <td>+$3,500</td>
+          <td>None</td>
+          <td>+$7,500</td>
+          <td>+$7,500</td>
+        </tr>
+        <tr>
+          <td>Employees allowed</td>
+          <td>Yes (≤100)</td>
+          <td>Yes</td>
+          <td>Owner only</td>
+          <td>Yes, any size</td>
+        </tr>
+        <tr>
+          <td>Employer contribution</td>
+          <td>Required match</td>
+          <td>Employer only</td>
+          <td>Optional</td>
+          <td>Optional</td>
+        </tr>
+        <tr>
+          <td>Roth option</td>
+          <td>No</td>
+          <td>No</td>
+          <td>Yes</td>
+          <td>Yes</td>
+        </tr>
+        <tr>
+          <td>Loans</td>
+          <td>No</td>
+          <td>No</td>
+          <td>Yes</td>
+          <td>Yes</td>
+        </tr>
+        <tr>
+          <td>Admin complexity</td>
+          <td>Low</td>
+          <td>Very low</td>
+          <td>Low – Medium</td>
+          <td>Medium – High</td>
+        </tr>
+        <tr>
+          <td>Annual 5500 filing</td>
+          <td>No</td>
+          <td>No</td>
+          <td>If assets &gt; $250k</td>
+          <td>Required</td>
+        </tr>
+        <tr>
+          <td>Deadline to open</td>
+          <td>Oct 1 current yr</td>
+          <td>Tax deadline + ext</td>
+          <td>Dec 31 current yr</td>
+          <td>Dec 31 current yr</td>
+        </tr>
+        <tr>
+          <td>Best fit</td>
+          <td>Small team, low cost</td>
+          <td>Solo, variable income</td>
+          <td>Self-employed, no staff</td>
+          <td>Growth stage, max savings</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <!-- FOOTER CTA -->
+  <div class="footer-cta">
+    <div class="footer-left">
+      <div class="footer-eyebrow">Ready to run the numbers?</div>
+      <div class="footer-title">Let's find your plan.</div>
+      <p class="footer-sub">The right answer depends on your income, payroll, employee count, and exit timeline. We'll model it out — no obligation, no jargon.</p>
+    </div>
+    <a class="footer-book" href="https://calendly.com/cadencewp/30min" target="_blank" rel="noopener">Book a free consultation →</a>
+  </div>
+
+  <div class="footer-note">
+    <p>This guide is for educational purposes and does not constitute individualized tax or investment advice.</p>
+    <p style="margin-top: 4px;">Cadence Wealth Partners · 845 Church St N, Suite 205, Concord, NC · <a href="https://cadencewealthpartners.com">cadencewealthpartners.com</a></p>
+  </div>
+
+</div>
+
+<script>
+  const panels = { simple: 'panel-simple', sep: 'panel-sep', solo: 'panel-solo', fourk: 'panel-fourk' };
+  const cards = document.querySelectorAll('.plan-card');
+
+  function togglePanel(id) {
+    const panel = document.getElementById(panels[id]);
+    const cardIndex = Object.keys(panels).indexOf(id);
+    const card = cards[cardIndex];
+    const isOpen = panel.classList.contains('open');
+
+    // Close all
+    Object.values(panels).forEach(pid => {
+      document.getElementById(pid).classList.remove('open');
+    });
+    cards.forEach(c => c.classList.remove('active'));
+
+    if (!isOpen) {
+      panel.classList.add('open');
+      card.classList.add('active');
+      setTimeout(() => {
+        panel.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+      }, 50);
+    }
+  }
+</script>
+
+</body>
+</html>
