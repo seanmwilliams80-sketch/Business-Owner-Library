@@ -1,0 +1,983 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Business Structure Guide | Cadence Wealth Partners</title>
+<meta name="description" content="Sole Prop, Partnership, LLC, S-Corp, C-Corp — which structure fits your business? Tax, liability, and exit planning implications from Cadence Wealth Partners.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=DM+Sans:opsz,wght@9..40,400;9..40,500;9..40,600&display=swap" rel="stylesheet">
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  :root {
+    --navy: #003E6F;
+    --navy-dark: #002d52;
+    --green: #8DC63F;
+    --green-dark: #6fa030;
+    --gray: #6D6E71;
+    --gray-light: #f4f4f2;
+    --gray-mid: #e4e4e0;
+    --border: #ddddd8;
+    --white: #ffffff;
+    --text: #1a1a1a;
+    --text-muted: #5a5a5a;
+
+    --c-sole: #f4ede0;
+    --c-sole-text: #7a4a10;
+    --c-sole-border: #e0c89a;
+    --c-partner: #e0eaf8;
+    --c-partner-text: #0c3f6e;
+    --c-partner-border: #9ab8dc;
+    --c-llc: #e6f4cc;
+    --c-llc-text: #2f5a0b;
+    --c-llc-border: #a8d46a;
+    --c-scorp: #ede8f8;
+    --c-scorp-text: #3d2480;
+    --c-scorp-border: #b8a8e0;
+    --c-ccorp: #fde8e8;
+    --c-ccorp-text: #7a1010;
+    --c-ccorp-border: #f0a8a8;
+  }
+
+  html { scroll-behavior: smooth; }
+  body {
+    font-family: 'DM Sans', sans-serif;
+    color: var(--text);
+    background: #f0efe9;
+    line-height: 1.6;
+    min-height: 100vh;
+  }
+
+  .page-wrap { max-width: 1020px; margin: 0 auto; padding: 40px 20px 60px; }
+
+  /* ── HERO ── */
+  .hero {
+    background: var(--navy);
+    border-radius: 16px;
+    padding: 48px 48px 40px;
+    margin-bottom: 32px;
+    position: relative;
+    overflow: hidden;
+  }
+  .hero::before {
+    content: ''; position: absolute;
+    top: -60px; right: -60px;
+    width: 260px; height: 260px;
+    border-radius: 50%;
+    background: rgba(141,198,63,0.12);
+  }
+  .hero::after {
+    content: ''; position: absolute;
+    bottom: -40px; right: 80px;
+    width: 140px; height: 140px;
+    border-radius: 50%;
+    background: rgba(141,198,63,0.07);
+  }
+  .hero-inner { position: relative; z-index: 1; }
+  .hero-eyebrow { font-size: 11px; font-weight: 600; letter-spacing: 2.5px; text-transform: uppercase; color: var(--green); margin-bottom: 10px; }
+  .hero-title { font-family: 'DM Serif Display', serif; font-size: 36px; line-height: 1.2; color: var(--white); margin-bottom: 14px; }
+  .hero-title em { font-style: italic; color: #acd470; }
+  .hero-sub { font-size: 15px; color: rgba(255,255,255,0.72); max-width: 580px; line-height: 1.65; margin-bottom: 28px; }
+  .hero-meta { display: flex; align-items: center; gap: 20px; flex-wrap: wrap; }
+  .hero-brand { font-family: 'DM Serif Display', serif; font-size: 13px; color: rgba(255,255,255,0.45); }
+  .hero-pill { font-size: 11px; padding: 4px 12px; border-radius: 20px; background: rgba(255,255,255,0.1); color: rgba(255,255,255,0.65); border: 0.5px solid rgba(255,255,255,0.2); }
+
+  /* ── SECTION LABEL ── */
+  .section-label { font-size: 10px; font-weight: 600; letter-spacing: 2px; text-transform: uppercase; color: var(--gray); margin-bottom: 14px; }
+
+  /* ── ENTITY SELECTOR TABS ── */
+  .entity-tabs {
+    display: flex;
+    gap: 8px;
+    margin-bottom: 24px;
+    flex-wrap: wrap;
+  }
+  .entity-tab {
+    padding: 8px 18px;
+    border-radius: 30px;
+    border: 1.5px solid var(--border);
+    background: var(--white);
+    font-family: 'DM Sans', sans-serif;
+    font-size: 13px;
+    font-weight: 500;
+    cursor: pointer;
+    transition: all 0.15s;
+    color: var(--text-muted);
+  }
+  .entity-tab:hover { border-color: var(--navy); color: var(--navy); }
+  .entity-tab.active-sole   { background: var(--c-sole);    color: var(--c-sole-text);    border-color: var(--c-sole-border); }
+  .entity-tab.active-partner{ background: var(--c-partner); color: var(--c-partner-text); border-color: var(--c-partner-border); }
+  .entity-tab.active-llc    { background: var(--c-llc);     color: var(--c-llc-text);     border-color: var(--c-llc-border); }
+  .entity-tab.active-scorp  { background: var(--c-scorp);   color: var(--c-scorp-text);   border-color: var(--c-scorp-border); }
+  .entity-tab.active-ccorp  { background: var(--c-ccorp);   color: var(--c-ccorp-text);   border-color: var(--c-ccorp-border); }
+
+  /* ── OVERVIEW CARDS ROW ── */
+  .overview-row {
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    gap: 10px;
+    margin-bottom: 24px;
+  }
+  @media (max-width: 780px) { .overview-row { grid-template-columns: 1fr 1fr; } }
+  @media (max-width: 480px) { .overview-row { grid-template-columns: 1fr; } }
+
+  .overview-card {
+    background: var(--white);
+    border: 1.5px solid var(--border);
+    border-radius: 14px;
+    padding: 18px 16px;
+    cursor: pointer;
+    transition: transform 0.15s, box-shadow 0.15s;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+  }
+  .overview-card:hover { transform: translateY(-2px); box-shadow: 0 6px 20px rgba(0,62,111,0.09); }
+  .overview-card.active { box-shadow: 0 4px 20px rgba(0,62,111,0.15); }
+
+  .overview-card.sole    { border-color: var(--c-sole-border);    background: var(--c-sole); }
+  .overview-card.partner { border-color: var(--c-partner-border); background: var(--c-partner); }
+  .overview-card.llc     { border-color: var(--c-llc-border);     background: var(--c-llc); }
+  .overview-card.scorp   { border-color: var(--c-scorp-border);   background: var(--c-scorp); }
+  .overview-card.ccorp   { border-color: var(--c-ccorp-border);   background: var(--c-ccorp); }
+
+  .oc-icon { font-size: 24px; line-height: 1; }
+  .oc-name { font-family: 'DM Serif Display', serif; font-size: 15px; line-height: 1.2; }
+  .oc-name.sole    { color: var(--c-sole-text); }
+  .oc-name.partner { color: var(--c-partner-text); }
+  .oc-name.llc     { color: var(--c-llc-text); }
+  .oc-name.scorp   { color: var(--c-scorp-text); }
+  .oc-name.ccorp   { color: var(--c-ccorp-text); }
+  .oc-tagline { font-size: 11px; color: var(--text-muted); line-height: 1.4; }
+  .oc-complexity { display: flex; gap: 3px; margin-top: 2px; }
+  .complexity-dot { width: 6px; height: 6px; border-radius: 50%; background: var(--gray-mid); }
+  .complexity-dot.filled { background: var(--navy); }
+
+  /* ── DETAIL PANEL ── */
+  .detail-panel {
+    display: none;
+    background: var(--white);
+    border: 1.5px solid var(--border);
+    border-radius: 16px;
+    overflow: hidden;
+    margin-bottom: 24px;
+    animation: slideDown 0.25s ease;
+  }
+  .detail-panel.open { display: block; }
+  @keyframes slideDown { from { opacity: 0; transform: translateY(-8px); } to { opacity: 1; transform: translateY(0); } }
+
+  .panel-header {
+    padding: 24px 32px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 16px;
+    flex-wrap: wrap;
+  }
+  .panel-header.sole    { background: var(--c-sole);    border-bottom: 1.5px solid var(--c-sole-border); }
+  .panel-header.partner { background: var(--c-partner); border-bottom: 1.5px solid var(--c-partner-border); }
+  .panel-header.llc     { background: var(--c-llc);     border-bottom: 1.5px solid var(--c-llc-border); }
+  .panel-header.scorp   { background: var(--c-scorp);   border-bottom: 1.5px solid var(--c-scorp-border); }
+  .panel-header.ccorp   { background: var(--c-ccorp);   border-bottom: 1.5px solid var(--c-ccorp-border); }
+
+  .ph-left { display: flex; align-items: center; gap: 14px; }
+  .ph-icon { font-size: 36px; }
+  .ph-name { font-family: 'DM Serif Display', serif; font-size: 26px; line-height: 1.1; }
+  .ph-name.sole    { color: var(--c-sole-text); }
+  .ph-name.partner { color: var(--c-partner-text); }
+  .ph-name.llc     { color: var(--c-llc-text); }
+  .ph-name.scorp   { color: var(--c-scorp-text); }
+  .ph-name.ccorp   { color: var(--c-ccorp-text); }
+  .ph-full { font-size: 12px; color: var(--text-muted); margin-top: 2px; }
+
+  .ph-badges { display: flex; gap: 8px; flex-wrap: wrap; }
+  .ph-badge {
+    font-size: 11px; font-weight: 600; padding: 4px 12px;
+    border-radius: 20px; border: 1px solid;
+  }
+  .ph-badge.sole    { background: #fff8ee; color: var(--c-sole-text);    border-color: var(--c-sole-border); }
+  .ph-badge.partner { background: #f0f6ff; color: var(--c-partner-text); border-color: var(--c-partner-border); }
+  .ph-badge.llc     { background: #f4fbea; color: var(--c-llc-text);     border-color: var(--c-llc-border); }
+  .ph-badge.scorp   { background: #f8f5ff; color: var(--c-scorp-text);   border-color: var(--c-scorp-border); }
+  .ph-badge.ccorp   { background: #fff4f4; color: var(--c-ccorp-text);   border-color: var(--c-ccorp-border); }
+
+  /* ── THREE-COLUMN BODY ── */
+  .panel-body {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    gap: 0;
+  }
+  @media (max-width: 720px) { .panel-body { grid-template-columns: 1fr; } }
+
+  .panel-col {
+    padding: 24px 28px;
+    border-right: 0.5px solid var(--gray-mid);
+  }
+  .panel-col:last-child { border-right: none; }
+
+  .col-header {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    margin-bottom: 16px;
+    padding-bottom: 10px;
+    border-bottom: 2px solid;
+  }
+  .col-header.tax      { border-color: #3a6b0f; }
+  .col-header.liability{ border-color: #003E6F; }
+  .col-header.exit     { border-color: #7a4a10; }
+
+  .col-icon { font-size: 18px; }
+  .col-title { font-size: 11px; font-weight: 600; letter-spacing: 1.5px; text-transform: uppercase; color: var(--text-muted); }
+
+  .col-prose { font-size: 13px; color: var(--text-muted); line-height: 1.7; }
+  .col-prose strong { color: var(--text); font-weight: 500; }
+  .col-prose p + p { margin-top: 10px; }
+
+  .col-facts { list-style: none; margin-top: 14px; }
+  .col-facts li {
+    font-size: 12px;
+    padding: 6px 0;
+    border-bottom: 0.5px solid var(--gray-mid);
+    display: flex;
+    align-items: flex-start;
+    gap: 8px;
+    line-height: 1.4;
+    color: var(--text-muted);
+  }
+  .col-facts li:last-child { border-bottom: none; }
+  .fact-icon { flex-shrink: 0; font-size: 13px; margin-top: 1px; }
+
+  /* ── CWP TAKE ── */
+  .cwp-take {
+    margin: 0 28px 24px;
+    background: #f0f6e8;
+    border-left: 3px solid var(--green);
+    border-radius: 0 8px 8px 0;
+    padding: 14px 18px;
+    font-size: 13px;
+    color: #2a4a10;
+    line-height: 1.6;
+  }
+  .cwp-take strong { font-weight: 600; }
+
+  /* ── COMPARISON TABLE ── */
+  .compare-wrap {
+    background: var(--white);
+    border: 1px solid var(--border);
+    border-radius: 14px;
+    padding: 24px;
+    margin-bottom: 28px;
+    overflow-x: auto;
+  }
+  .compare-title { font-size: 10px; font-weight: 600; letter-spacing: 2px; text-transform: uppercase; color: var(--gray); margin-bottom: 16px; }
+  .compare-table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 12.5px;
+    min-width: 640px;
+  }
+  .compare-table th {
+    text-align: left;
+    padding: 8px 12px;
+    font-size: 11px;
+    font-weight: 600;
+    border-bottom: 1px solid var(--border);
+  }
+  .compare-table th:first-child { color: var(--text-muted); background: var(--gray-light); width: 18%; border-radius: 6px 0 0 6px; }
+  .compare-table th.th-sole    { background: var(--c-sole);    color: var(--c-sole-text); }
+  .compare-table th.th-partner { background: var(--c-partner); color: var(--c-partner-text); }
+  .compare-table th.th-llc     { background: var(--c-llc);     color: var(--c-llc-text); }
+  .compare-table th.th-scorp   { background: var(--c-scorp);   color: var(--c-scorp-text); }
+  .compare-table th.th-ccorp   { background: var(--c-ccorp);   color: var(--c-ccorp-text); border-radius: 0 6px 6px 0; }
+  .compare-table td {
+    padding: 8px 12px;
+    border-bottom: 0.5px solid var(--gray-mid);
+    color: var(--text);
+    font-size: 12px;
+    vertical-align: top;
+    line-height: 1.4;
+  }
+  .compare-table tr:last-child td { border-bottom: none; }
+  .compare-table td:first-child { font-weight: 500; color: var(--text-muted); font-size: 11px; background: var(--gray-light); }
+  .compare-table tr:hover td { background: #f9f8f5; }
+  .compare-table tr:hover td:first-child { background: var(--gray-light); }
+  .good  { color: #2f5a0b; font-weight: 500; }
+  .mid   { color: #7a5a00; font-weight: 500; }
+  .bad   { color: #8b2020; font-weight: 500; }
+
+  /* ── DECISION GUIDE ── */
+  .decision-wrap {
+    background: var(--white);
+    border: 1px solid var(--border);
+    border-radius: 14px;
+    padding: 24px 28px;
+    margin-bottom: 28px;
+  }
+  .decision-title { font-size: 10px; font-weight: 600; letter-spacing: 2px; text-transform: uppercase; color: var(--gray); margin-bottom: 18px; }
+  .decision-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(180px, 1fr)); gap: 12px; }
+  .decision-card {
+    border-radius: 10px;
+    padding: 14px 16px;
+    border: 1px solid;
+  }
+  .decision-card.sole    { background: var(--c-sole);    border-color: var(--c-sole-border); }
+  .decision-card.partner { background: var(--c-partner); border-color: var(--c-partner-border); }
+  .decision-card.llc     { background: var(--c-llc);     border-color: var(--c-llc-border); }
+  .decision-card.scorp   { background: var(--c-scorp);   border-color: var(--c-scorp-border); }
+  .decision-card.ccorp   { background: var(--c-ccorp);   border-color: var(--c-ccorp-border); }
+  .dc-label { font-size: 11px; font-weight: 600; margin-bottom: 6px; }
+  .dc-label.sole    { color: var(--c-sole-text); }
+  .dc-label.partner { color: var(--c-partner-text); }
+  .dc-label.llc     { color: var(--c-llc-text); }
+  .dc-label.scorp   { color: var(--c-scorp-text); }
+  .dc-label.ccorp   { color: var(--c-ccorp-text); }
+  .dc-desc { font-size: 12px; color: var(--text-muted); line-height: 1.5; }
+
+  /* ── FOOTER CTA ── */
+  .footer-cta {
+    background: var(--navy);
+    border-radius: 16px;
+    padding: 36px 48px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 24px;
+    flex-wrap: wrap;
+  }
+  .footer-eyebrow { font-size: 11px; font-weight: 600; letter-spacing: 2px; text-transform: uppercase; color: var(--green); margin-bottom: 8px; }
+  .footer-title { font-family: 'DM Serif Display', serif; font-size: 24px; color: var(--white); margin-bottom: 8px; }
+  .footer-sub { font-size: 13px; color: rgba(255,255,255,0.65); line-height: 1.6; max-width: 420px; }
+  .footer-book {
+    flex-shrink: 0; padding: 14px 28px;
+    background: var(--green); color: #152800;
+    font-family: 'DM Sans', sans-serif; font-size: 14px; font-weight: 600;
+    border: none; border-radius: 10px; cursor: pointer;
+    text-decoration: none; display: inline-block;
+    transition: background 0.15s, transform 0.1s; white-space: nowrap;
+  }
+  .footer-book:hover { background: var(--green-dark); transform: translateY(-1px); }
+  .footer-note { text-align: center; font-size: 11px; color: var(--gray); margin-top: 24px; line-height: 1.6; }
+  .footer-note a { color: var(--navy); text-decoration: none; }
+
+  /* ── ANIMATIONS ── */
+  .fade-up { opacity: 0; animation: fadeUp 0.4s ease forwards; }
+  .fade-up:nth-child(1) { animation-delay: 0.05s; }
+  .fade-up:nth-child(2) { animation-delay: 0.10s; }
+  .fade-up:nth-child(3) { animation-delay: 0.15s; }
+  .fade-up:nth-child(4) { animation-delay: 0.20s; }
+  .fade-up:nth-child(5) { animation-delay: 0.25s; }
+  @keyframes fadeUp { from { opacity: 0; transform: translateY(12px); } to { opacity: 1; transform: translateY(0); } }
+
+  @media (max-width: 600px) {
+    .hero { padding: 32px 24px 28px; }
+    .hero-title { font-size: 26px; }
+    .footer-cta { padding: 28px 24px; }
+    .panel-col { padding: 18px 20px; }
+  }
+</style>
+</head>
+<body>
+
+<div class="page-wrap">
+
+  <!-- HERO -->
+  <div class="hero">
+    <div class="hero-inner">
+      <div class="hero-eyebrow">Business Owner Planning Guide</div>
+      <h1 class="hero-title">Which structure is right<br><em>for your business?</em></h1>
+      <p class="hero-sub">Five entities. Three lenses — taxes, liability, and exit. Because the structure you choose on day one follows you all the way to the closing table.</p>
+      <div class="hero-meta">
+        <span class="hero-brand">Cadence Wealth Partners</span>
+        <span class="hero-pill">Fee-only · Fiduciary</span>
+        <span class="hero-pill">Concord, NC</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- OVERVIEW CARDS -->
+  <div class="section-label">Select a structure to explore</div>
+  <div class="overview-row">
+    <div class="overview-card sole fade-up" onclick="showEntity('sole')">
+      <div class="oc-icon">👤</div>
+      <div class="oc-name sole">Sole Proprietorship</div>
+      <div class="oc-tagline">Simplest start — highest personal risk</div>
+      <div class="oc-complexity">
+        <div class="complexity-dot filled"></div>
+        <div class="complexity-dot"></div>
+        <div class="complexity-dot"></div>
+        <div class="complexity-dot"></div>
+      </div>
+    </div>
+    <div class="overview-card partner fade-up" onclick="showEntity('partner')">
+      <div class="oc-icon">🤝</div>
+      <div class="oc-name partner">Partnership</div>
+      <div class="oc-tagline">Two or more owners, shared liability</div>
+      <div class="oc-complexity">
+        <div class="complexity-dot filled"></div>
+        <div class="complexity-dot filled"></div>
+        <div class="complexity-dot"></div>
+        <div class="complexity-dot"></div>
+      </div>
+    </div>
+    <div class="overview-card llc fade-up" onclick="showEntity('llc')">
+      <div class="oc-icon">🛡️</div>
+      <div class="oc-name llc">LLC</div>
+      <div class="oc-tagline">Flexible protection — most popular choice</div>
+      <div class="oc-complexity">
+        <div class="complexity-dot filled"></div>
+        <div class="complexity-dot filled"></div>
+        <div class="complexity-dot"></div>
+        <div class="complexity-dot"></div>
+      </div>
+    </div>
+    <div class="overview-card scorp fade-up" onclick="showEntity('scorp')">
+      <div class="oc-icon">📊</div>
+      <div class="oc-name scorp">S-Corporation</div>
+      <div class="oc-tagline">Tax efficiency for profitable businesses</div>
+      <div class="oc-complexity">
+        <div class="complexity-dot filled"></div>
+        <div class="complexity-dot filled"></div>
+        <div class="complexity-dot filled"></div>
+        <div class="complexity-dot"></div>
+      </div>
+    </div>
+    <div class="overview-card ccorp fade-up" onclick="showEntity('ccorp')">
+      <div class="oc-icon">🏢</div>
+      <div class="oc-name ccorp">C-Corporation</div>
+      <div class="oc-tagline">Built for scale, investors, or acquisition</div>
+      <div class="oc-complexity">
+        <div class="complexity-dot filled"></div>
+        <div class="complexity-dot filled"></div>
+        <div class="complexity-dot filled"></div>
+        <div class="complexity-dot filled"></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ── SOLE PROP PANEL ── -->
+  <div class="detail-panel" id="panel-sole">
+    <div class="panel-header sole">
+      <div class="ph-left">
+        <div class="ph-icon">👤</div>
+        <div>
+          <div class="ph-name sole">Sole Proprietorship</div>
+          <div class="ph-full">No formal entity — you and your business are legally the same</div>
+        </div>
+      </div>
+      <div class="ph-badges">
+        <span class="ph-badge sole">Complexity: Low</span>
+        <span class="ph-badge sole">Best for: Early stage</span>
+      </div>
+    </div>
+    <div class="panel-body">
+      <div class="panel-col">
+        <div class="col-header tax">
+          <span class="col-icon">💰</span>
+          <span class="col-title">Tax Implications</span>
+        </div>
+        <div class="col-prose">
+          <p>All business income flows directly to your personal return — Schedule C. You pay ordinary income tax <strong>plus self-employment tax (15.3%)</strong> on every dollar of net profit.</p>
+          <p>No payroll, no W-2, no corporate return. Simple — but expensive as income grows. There's no mechanism to split income or reduce SE tax without restructuring.</p>
+        </div>
+        <ul class="col-facts">
+          <li><span class="fact-icon">📋</span>No separate return — Schedule C on your personal 1040</li>
+          <li><span class="fact-icon">✅</span>Not a separate tax entity — simplest filing possible</li>
+          <li><span class="fact-icon">⚠️</span>SE tax on 100% of net profit</li>
+          <li><span class="fact-icon">✅</span>Qualify for 20% QBI deduction (if eligible)</li>
+          <li><span class="fact-icon">✅</span>Simplified estimated tax payments</li>
+        </ul>
+      </div>
+      <div class="panel-col">
+        <div class="col-header liability">
+          <span class="col-icon">🛡️</span>
+          <span class="col-title">Liability Protection</span>
+        </div>
+        <div class="col-prose">
+          <p><strong>None.</strong> You and your business are legally indistinguishable. A lawsuit against the business is a lawsuit against you personally — your home, savings, and assets are all on the table.</p>
+          <p>For a one-person service operation with minimal risk this may be manageable, but any business with employees, physical locations, vehicles, or client-facing liability needs more protection.</p>
+        </div>
+        <ul class="col-facts">
+          <li><span class="fact-icon">❌</span>No separation between personal and business assets</li>
+          <li><span class="fact-icon">❌</span>Personal assets exposed to business debts</li>
+          <li><span class="fact-icon">⚠️</span>Insurance is your only shield</li>
+        </ul>
+      </div>
+      <div class="panel-col">
+        <div class="col-header exit">
+          <span class="col-icon">🚪</span>
+          <span class="col-title">Exit Planning</span>
+        </div>
+        <div class="col-prose">
+          <p>The hardest structure to sell. There's no legal entity to transfer — buyers purchase assets only, not the business as a going concern. That limits your buyer pool and often depresses value.</p>
+          <p><strong>If exit is on your horizon,</strong> transitioning to an LLC or S-Corp years before a sale is one of the most valuable moves you can make. The clock starts when you restructure.</p>
+        </div>
+        <ul class="col-facts">
+          <li><span class="fact-icon">❌</span>No entity to sell — asset sale only</li>
+          <li><span class="fact-icon">❌</span>Goodwill may not transfer cleanly</li>
+          <li><span class="fact-icon">⚠️</span>Restructure early if exit is planned</li>
+        </ul>
+      </div>
+    </div>
+    <div class="cwp-take"><strong>The CWP take:</strong> Most blue-collar business owners start here because it requires nothing — no filing, no cost, no complexity. That's fine at day one. But if you're generating real profit, have employees, own equipment, or have even a passing thought about selling someday, staying a sole prop is costing you money and exposing you unnecessarily. The conversation about restructuring should happen before you need it.</div>
+  </div>
+
+  <!-- ── PARTNERSHIP PANEL ── -->
+  <div class="detail-panel" id="panel-partner">
+    <div class="panel-header partner">
+      <div class="ph-left">
+        <div class="ph-icon">🤝</div>
+        <div>
+          <div class="ph-name partner">Partnership</div>
+          <div class="ph-full">General Partnership (GP) · Limited Partnership (LP) · Limited Liability Partnership (LLP)</div>
+        </div>
+      </div>
+      <div class="ph-badges">
+        <span class="ph-badge partner">Complexity: Low–Medium</span>
+        <span class="ph-badge partner">Best for: Multi-owner businesses</span>
+      </div>
+    </div>
+    <div class="panel-body">
+      <div class="panel-col">
+        <div class="col-header tax">
+          <span class="col-icon">💰</span>
+          <span class="col-title">Tax Implications</span>
+        </div>
+        <div class="col-prose">
+          <p>Partnerships are <strong>pass-through entities</strong> — no entity-level tax. Income, deductions, and credits flow to each partner's personal return via a K-1.</p>
+          <p>Partners can share profits in any ratio agreed upon in the partnership agreement, which creates planning flexibility. General partners pay SE tax on their share; limited partners typically do not.</p>
+        </div>
+        <ul class="col-facts">
+          <li><span class="fact-icon">📋</span>Separate return required — Form 1065 + K-1s to each partner</li>
+          <li><span class="fact-icon">⚠️</span>Not a separate tax entity — income passes through to partners</li>
+          <li><span class="fact-icon">⚠️</span>General partners pay SE tax</li>
+          <li><span class="fact-icon">✅</span>Flexible profit/loss allocation</li>
+          <li><span class="fact-icon">✅</span>QBI deduction may apply</li>
+        </ul>
+      </div>
+      <div class="panel-col">
+        <div class="col-header liability">
+          <span class="col-icon">🛡️</span>
+          <span class="col-title">Liability Protection</span>
+        </div>
+        <div class="col-prose">
+          <p>Depends heavily on the type. In a <strong>General Partnership</strong>, every partner is personally liable — including for each other's actions. One partner's mistake can expose everyone.</p>
+          <p>An <strong>LLP</strong> protects partners from each other's negligence. An <strong>LP</strong> protects limited partners as long as they remain passive. For most operating businesses, an LLC or S-Corp is cleaner.</p>
+        </div>
+        <ul class="col-facts">
+          <li><span class="fact-icon">❌</span>GP: full personal liability for all partners</li>
+          <li><span class="fact-icon">✅</span>LLP: protection from partner negligence</li>
+          <li><span class="fact-icon">✅</span>LP: limited partners protected if passive</li>
+        </ul>
+      </div>
+      <div class="panel-col">
+        <div class="col-header exit">
+          <span class="col-icon">🚪</span>
+          <span class="col-title">Exit Planning</span>
+        </div>
+        <div class="col-prose">
+          <p>Partnership interests can be sold, but the process is governed by the partnership agreement. <strong>Buy-sell provisions are critical</strong> — without them, a partner's death, divorce, or departure can create chaos.</p>
+          <p>For multi-owner businesses, structuring the exit of one partner without dissolving the business requires planning well in advance. This is where a CEPA-guided review adds real value.</p>
+        </div>
+        <ul class="col-facts">
+          <li><span class="fact-icon">⚠️</span>Buy-sell agreement is non-negotiable</li>
+          <li><span class="fact-icon">⚠️</span>Partner departure can trigger dissolution</li>
+          <li><span class="fact-icon">✅</span>Interest transfer possible with proper docs</li>
+        </ul>
+      </div>
+    </div>
+    <div class="cwp-take"><strong>The CWP take:</strong> Partnerships are common when two people start a business together on a handshake — and that's exactly the problem. Without a formal partnership agreement that covers buyout terms, death, disability, and dispute resolution, you're one bad year or one health event away from a legal mess. If you're in business with a partner and you don't have a buy-sell agreement, that's the first call to make.</div>
+  </div>
+
+  <!-- ── LLC PANEL ── -->
+  <div class="detail-panel" id="panel-llc">
+    <div class="panel-header llc">
+      <div class="ph-left">
+        <div class="ph-icon">🛡️</div>
+        <div>
+          <div class="ph-name llc">LLC</div>
+          <div class="ph-full">Limited Liability Company — single-member or multi-member</div>
+        </div>
+      </div>
+      <div class="ph-badges">
+        <span class="ph-badge llc">Complexity: Low–Medium</span>
+        <span class="ph-badge llc">Best for: Most small businesses</span>
+        <span class="ph-badge llc">Most popular structure</span>
+      </div>
+    </div>
+    <div class="panel-body">
+      <div class="panel-col">
+        <div class="col-header tax">
+          <span class="col-icon">💰</span>
+          <span class="col-title">Tax Implications</span>
+        </div>
+        <div class="col-prose">
+          <p>By default, a single-member LLC is taxed as a sole prop (Schedule C) and a multi-member LLC as a partnership. But an LLC can <strong>elect to be taxed as an S-Corp</strong> — which is one of the most powerful tax moves available to a profitable small business owner.</p>
+          <p>As a pass-through by default, all income hits your personal return. The SE tax issue remains unless you make the S-Corp election.</p>
+        </div>
+        <ul class="col-facts">
+          <li><span class="fact-icon">📋</span>No separate return — Schedule C on your personal 1040</li>
+          <li><span class="fact-icon">✅</span>Disregarded entity by default — not a separate taxpayer</li>
+          <li><span class="fact-icon">✅</span>Can elect S-Corp taxation (Form 2553)</li>
+          <li><span class="fact-icon">⚠️</span>SE tax applies without S-Corp election</li>
+          <li><span class="fact-icon">✅</span>QBI deduction may apply</li>
+        </ul>
+      </div>
+      <div class="panel-col">
+        <div class="col-header liability">
+          <span class="col-icon">🛡️</span>
+          <span class="col-title">Liability Protection</span>
+        </div>
+        <div class="col-prose">
+          <p><strong>Strong protection</strong> when properly maintained. The LLC creates a legal wall between your personal assets and business liabilities — lawsuits, debts, and judgments against the business stay with the business.</p>
+          <p>The key: you must maintain the separation. Commingling personal and business funds (the "corporate veil") is the most common mistake that destroys LLC protection.</p>
+        </div>
+        <ul class="col-facts">
+          <li><span class="fact-icon">✅</span>Personal assets shielded from business liability</li>
+          <li><span class="fact-icon">✅</span>Flexible operating agreement</li>
+          <li><span class="fact-icon">⚠️</span>Must maintain separate accounts and records</li>
+          <li><span class="fact-icon">❌</span>Pierced veil if commingling occurs</li>
+        </ul>
+      </div>
+      <div class="panel-col">
+        <div class="col-header exit">
+          <span class="col-icon">🚪</span>
+          <span class="col-title">Exit Planning</span>
+        </div>
+        <div class="col-prose">
+          <p>LLCs are highly flexible for exit. Membership interests can be sold, gifted, or transferred. Buyers can acquire the entity itself (membership interest purchase) or just the assets — giving both parties negotiating room on deal structure.</p>
+          <p><strong>For most blue-collar business owners,</strong> an LLC taxed as an S-Corp is the sweet spot: liability protection, tax efficiency, and a clean exit structure — all in one.</p>
+        </div>
+        <ul class="col-facts">
+          <li><span class="fact-icon">✅</span>Membership interest sale or asset sale both viable</li>
+          <li><span class="fact-icon">✅</span>Flexible transfer and gifting options</li>
+          <li><span class="fact-icon">✅</span>Clean structure for third-party sale</li>
+        </ul>
+      </div>
+    </div>
+    <div class="cwp-take"><strong>The CWP take:</strong> For most of our business owner clients, the LLC is home base. It's flexible, relatively simple to maintain, and when paired with an S-Corp tax election, becomes a serious tax-savings vehicle. The S-Corp election alone can save a profitable owner $10,000–$20,000+ per year in SE taxes — which funds retirement plans, builds wealth, and improves the financial picture a buyer sees. If you're an LLC and haven't had the S-Corp conversation, that's where we start.</div>
+  </div>
+
+  <!-- ── S-CORP PANEL ── -->
+  <div class="detail-panel" id="panel-scorp">
+    <div class="panel-header scorp">
+      <div class="ph-left">
+        <div class="ph-icon">📊</div>
+        <div>
+          <div class="ph-name scorp">S-Corporation</div>
+          <div class="ph-full">Pass-through corporation with payroll requirements and shareholder limits</div>
+        </div>
+      </div>
+      <div class="ph-badges">
+        <span class="ph-badge scorp">Complexity: Medium</span>
+        <span class="ph-badge scorp">Best for: Profitable small businesses</span>
+      </div>
+    </div>
+    <div class="panel-body">
+      <div class="panel-col">
+        <div class="col-header tax">
+          <span class="col-icon">💰</span>
+          <span class="col-title">Tax Implications</span>
+        </div>
+        <div class="col-prose">
+          <p>The S-Corp's primary advantage is <strong>SE tax savings</strong>. The owner pays themselves a "reasonable salary" via W-2 — SE tax only applies to that salary. Remaining profits are taken as distributions, which are not subject to SE tax.</p>
+          <p>At $150,000+ in net profit, this structure typically saves more in taxes than it costs to operate. Below ~$50,000 in profit, the added complexity may not be worth it.</p>
+        </div>
+        <ul class="col-facts">
+          <li><span class="fact-icon">📋</span>Separate return required — Form 1120-S + K-1s to shareholders</li>
+          <li><span class="fact-icon">⚠️</span>Not a separate tax entity — profits pass through to your 1040</li>
+          <li><span class="fact-icon">✅</span>SE tax only on W-2 salary, not distributions</li>
+          <li><span class="fact-icon">⚠️</span>Reasonable compensation required by IRS</li>
+          <li><span class="fact-icon">✅</span>Opens door to robust retirement plan options</li>
+          <li><span class="fact-icon">⚠️</span>100 shareholder limit; one class of stock only</li>
+        </ul>
+      </div>
+      <div class="panel-col">
+        <div class="col-header liability">
+          <span class="col-icon">🛡️</span>
+          <span class="col-title">Liability Protection</span>
+        </div>
+        <div class="col-prose">
+          <p>Strong liability protection — same principle as the LLC. The corporation is a separate legal entity; personal assets are shielded from business liabilities when the corporate formalities are maintained.</p>
+          <p>Requires more formal record-keeping than an LLC: <strong>annual meetings, minutes, resolutions,</strong> and separation of finances. More structure = more protection, but also more maintenance.</p>
+        </div>
+        <ul class="col-facts">
+          <li><span class="fact-icon">✅</span>Personal assets protected from business liability</li>
+          <li><span class="fact-icon">⚠️</span>Must maintain corporate formalities</li>
+          <li><span class="fact-icon">⚠️</span>Annual minutes and resolutions required</li>
+        </ul>
+      </div>
+      <div class="panel-col">
+        <div class="col-header exit">
+          <span class="col-icon">🚪</span>
+          <span class="col-title">Exit Planning</span>
+        </div>
+        <div class="col-prose">
+          <p>The S-Corp is one of the most buyer-friendly exit structures. Buyers can choose between a <strong>stock sale</strong> (they buy your shares, inheriting the entity) or an asset sale. A Section 338(h)(10) election can give a buyer asset-sale tax treatment while you get stock-sale treatment — a powerful negotiating tool.</p>
+          <p>Built-in gains tax applies if you converted from a C-Corp — less of a concern for businesses that started as S-Corps.</p>
+        </div>
+        <ul class="col-facts">
+          <li><span class="fact-icon">✅</span>Stock sale or asset sale both available</li>
+          <li><span class="fact-icon">✅</span>338(h)(10) election for favorable deal structure</li>
+          <li><span class="fact-icon">✅</span>Clean shareholder record for buyer diligence</li>
+          <li><span class="fact-icon">⚠️</span>Built-in gains if converted from C-Corp</li>
+        </ul>
+      </div>
+    </div>
+    <div class="cwp-take"><strong>The CWP take:</strong> The S-Corp is where tax planning and exit planning converge. A profitable owner in an S-Corp can reduce SE taxes, maximize retirement plan contributions, and present a clean, well-documented business to a future buyer — all simultaneously. The W-2 salary also creates the earned income needed to fund a Solo 401(k) or Safe Harbor plan. If you're running a profitable business and you're not an S-Corp (or an LLC taxed as one), we should have that conversation.</div>
+  </div>
+
+  <!-- ── C-CORP PANEL ── -->
+  <div class="detail-panel" id="panel-ccorp">
+    <div class="panel-header ccorp">
+      <div class="ph-left">
+        <div class="ph-icon">🏢</div>
+        <div>
+          <div class="ph-name ccorp">C-Corporation</div>
+          <div class="ph-full">Separate taxable entity — designed for scale, investment, and institutional buyers</div>
+        </div>
+      </div>
+      <div class="ph-badges">
+        <span class="ph-badge ccorp">Complexity: High</span>
+        <span class="ph-badge ccorp">Best for: Scale or investor-backed</span>
+      </div>
+    </div>
+    <div class="panel-body">
+      <div class="panel-col">
+        <div class="col-header tax">
+          <span class="col-icon">💰</span>
+          <span class="col-title">Tax Implications</span>
+        </div>
+        <div class="col-prose">
+          <p>The C-Corp is a <strong>separate taxpaying entity</strong> at a flat 21% corporate rate. When profits are distributed to shareholders as dividends, they're taxed again at the individual level — this is the infamous <strong>"double taxation."</strong></p>
+          <p>However, retained earnings inside the C-Corp grow at the lower corporate rate, which can be advantageous for businesses that reinvest heavily. QSBS exclusion (Section 1202) can eliminate capital gains tax on exit for qualifying C-Corps.</p>
+        </div>
+        <ul class="col-facts">
+          <li><span class="fact-icon">📋</span>Separate return required — Form 1120 corporate return</li>
+          <li><span class="fact-icon">⚠️</span>True separate tax entity — the only structure that pays its own taxes</li>
+          <li><span class="fact-icon">⚠️</span>Double taxation on dividends</li>
+          <li><span class="fact-icon">✅</span>Flat 21% corporate tax rate</li>
+          <li><span class="fact-icon">✅</span>QSBS exclusion (Sec. 1202) on exit</li>
+          <li><span class="fact-icon">✅</span>Retained earnings taxed at lower rate</li>
+        </ul>
+      </div>
+      <div class="panel-col">
+        <div class="col-header liability">
+          <span class="col-icon">🛡️</span>
+          <span class="col-title">Liability Protection</span>
+        </div>
+        <div class="col-prose">
+          <p><strong>Strongest liability protection</strong> of any structure — long-established legal precedent, well-understood by courts and creditors. The corporation is fully separate from its shareholders.</p>
+          <p>Requires the most rigorous maintenance: board meetings, minutes, bylaws, officer roles, and strict financial separation. The additional overhead is the price of the structure's strength.</p>
+        </div>
+        <ul class="col-facts">
+          <li><span class="fact-icon">✅</span>Strongest personal asset protection</li>
+          <li><span class="fact-icon">✅</span>Well-established legal precedent</li>
+          <li><span class="fact-icon">⚠️</span>Most formal maintenance requirements</li>
+          <li><span class="fact-icon">⚠️</span>Board, officers, minutes, bylaws required</li>
+        </ul>
+      </div>
+      <div class="panel-col">
+        <div class="col-header exit">
+          <span class="col-icon">🚪</span>
+          <span class="col-title">Exit Planning</span>
+        </div>
+        <div class="col-prose">
+          <p>The C-Corp is the preferred structure for <strong>private equity, institutional buyers, and IPO paths</strong>. It can have unlimited shareholders, multiple share classes, and preferred stock — all of which are essential for raising outside capital.</p>
+          <p>For a blue-collar business owner not pursuing PE or institutional investment, the C-Corp's complexity and double taxation usually make it the wrong choice. But if a PE rollup or ESOP is in the exit picture, it changes the calculus entirely.</p>
+        </div>
+        <ul class="col-facts">
+          <li><span class="fact-icon">✅</span>Preferred by PE and institutional buyers</li>
+          <li><span class="fact-icon">✅</span>Unlimited shareholders, multiple share classes</li>
+          <li><span class="fact-icon">✅</span>QSBS exclusion eliminates gains tax on sale</li>
+          <li><span class="fact-icon">⚠️</span>Asset sale creates double taxation</li>
+        </ul>
+      </div>
+    </div>
+    <div class="cwp-take"><strong>The CWP take:</strong> For most of the business owners we work with, the C-Corp is not the right answer — the double taxation and administrative overhead don't justify the structure unless you're actively pursuing outside investment, a PE sale, or an ESOP. That said, if your exit strategy involves a private equity rollup or institutional buyer, the C-Corp conversation is worth having early — the QSBS exclusion alone can mean millions in tax-free gains on a qualifying sale.</div>
+  </div>
+
+  <!-- TAX ENTITY CALLOUT -->
+  <div style="background: #fff8ee; border: 1.5px solid #e0c89a; border-radius: 14px; padding: 20px 28px; margin-bottom: 16px; display: flex; gap: 16px; align-items: flex-start;">
+    <div style="font-size: 24px; flex-shrink: 0;">💡</div>
+    <div>
+      <div style="font-size: 11px; font-weight: 600; letter-spacing: 1.5px; text-transform: uppercase; color: #7a4a10; margin-bottom: 6px;">Know before you choose — separate entity vs. separate return</div>
+      <p style="font-size: 13px; color: #5a5a5a; line-height: 1.7; margin-bottom: 8px;"><strong style="color: #1a1a1a;">Separate tax entity</strong> means the business itself pays taxes — it's a distinct taxpayer from you. Only the <strong style="color: #1a1a1a;">C-Corp</strong> is a true separate tax entity. Sole Props, LLCs (no election), and S-Corps all pass income through to your personal return.</p>
+      <p style="font-size: 13px; color: #5a5a5a; line-height: 1.7;"><strong style="color: #1a1a1a;">Separate tax return</strong> is a different question — even though Partnerships and S-Corps are <em>not</em> separate tax entities, they still file their own informational return with the IRS (Form 1065 or 1120-S) and issue K-1s to owners. That means a second filing, a second CPA engagement, and added annual cost. A single-member LLC with no elections avoids this entirely — it's Schedule C on your personal return, same as a sole prop.</p>
+    </div>
+  </div>
+
+  <!-- COMPARISON TABLE -->
+  <div class="compare-wrap">
+    <div class="compare-title">Side-by-side snapshot</div>
+    <table class="compare-table">
+      <thead>
+        <tr>
+          <th></th>
+          <th class="th-sole">Sole Prop</th>
+          <th class="th-partner">Partnership</th>
+          <th class="th-llc">LLC</th>
+          <th class="th-scorp">S-Corp</th>
+          <th class="th-ccorp">C-Corp</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>Formation cost</td>
+          <td class="good">None</td>
+          <td class="good">Minimal</td>
+          <td class="good">Low ($50–$500)</td>
+          <td class="mid">Moderate</td>
+          <td class="bad">Higher</td>
+        </tr>
+        <tr>
+          <td>Admin complexity</td>
+          <td class="good">Very low</td>
+          <td class="good">Low</td>
+          <td class="good">Low</td>
+          <td class="mid">Medium</td>
+          <td class="bad">High</td>
+        </tr>
+        <tr>
+          <td>Separate tax entity</td>
+          <td class="good">No — you <em>are</em> the business</td>
+          <td class="good">No — pass-through only</td>
+          <td class="good">No — disregarded entity</td>
+          <td class="mid">Yes — profits still pass through</td>
+          <td class="bad">Yes — taxed at entity level</td>
+        </tr>
+        <tr>
+          <td>Separate tax return</td>
+          <td class="good">No — Schedule C on your 1040</td>
+          <td class="bad">Yes — Form 1065 + K-1s</td>
+          <td class="good">No — Schedule C on your 1040</td>
+          <td class="bad">Yes — Form 1120-S + K-1s</td>
+          <td class="bad">Yes — Form 1120 (corporate)</td>
+        </tr>
+        <tr>
+          <td>Est. added CPA cost</td>
+          <td class="good">Included in personal return</td>
+          <td class="mid">+$500–$1,500/yr</td>
+          <td class="good">Included in personal return</td>
+          <td class="mid">+$1,000–$2,500/yr</td>
+          <td class="bad">+$2,000–$5,000+/yr</td>
+        </tr>
+        <tr>
+          <td>Liability protection</td>
+          <td class="bad">None</td>
+          <td class="mid">Partial (GP: none)</td>
+          <td class="good">Strong</td>
+          <td class="good">Strong</td>
+          <td class="good">Strongest</td>
+        </tr>
+        <tr>
+          <td>SE tax on profits</td>
+          <td class="bad">All profits</td>
+          <td class="bad">GP: all profits</td>
+          <td class="bad">All (w/o S election)</td>
+          <td class="good">Salary only</td>
+          <td class="good">Salary only</td>
+        </tr>
+        <tr>
+          <td>Double taxation</td>
+          <td class="good">No</td>
+          <td class="good">No</td>
+          <td class="good">No</td>
+          <td class="good">No</td>
+          <td class="bad">Yes (on dividends)</td>
+        </tr>
+        <tr>
+          <td>Retirement plan options</td>
+          <td class="mid">SEP, Solo 401k</td>
+          <td class="mid">SEP, Solo 401k</td>
+          <td class="mid">SEP, Solo 401k</td>
+          <td class="good">Full 401k + profit sharing</td>
+          <td class="good">Full 401k + profit sharing</td>
+        </tr>
+        <tr>
+          <td>Exit — entity sale</td>
+          <td class="bad">No</td>
+          <td class="mid">Interest sale (complex)</td>
+          <td class="good">Yes</td>
+          <td class="good">Yes — stock or asset</td>
+          <td class="good">Yes — PE/institutional friendly</td>
+        </tr>
+        <tr>
+          <td>Best fit</td>
+          <td>Solo, early stage, low risk</td>
+          <td>Multi-owner with agreement</td>
+          <td>Most small businesses</td>
+          <td>Profitable, growth-stage</td>
+          <td>PE-backed, investor-funded</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <!-- DECISION GUIDE -->
+  <div class="decision-wrap">
+    <div class="decision-title">Quick decision guide — where do you land?</div>
+    <div class="decision-grid">
+      <div class="decision-card sole">
+        <div class="dc-label sole">👤 Sole Prop</div>
+        <div class="dc-desc">Just starting out, minimal revenue, no employees, not worried about liability yet.</div>
+      </div>
+      <div class="decision-card partner">
+        <div class="dc-label partner">🤝 Partnership</div>
+        <div class="dc-desc">Two or more owners, have a written agreement, understand each partner's exposure.</div>
+      </div>
+      <div class="decision-card llc">
+        <div class="dc-label llc">🛡️ LLC</div>
+        <div class="dc-desc">Want liability protection with flexibility. Best starting point for most growing businesses.</div>
+      </div>
+      <div class="decision-card scorp">
+        <div class="dc-label scorp">📊 S-Corp</div>
+        <div class="dc-desc">Generating $80k+ in profit, want to reduce SE taxes, thinking about a future sale.</div>
+      </div>
+      <div class="decision-card ccorp">
+        <div class="dc-label ccorp">🏢 C-Corp</div>
+        <div class="dc-desc">Pursuing outside investment, PE exit, ESOP, or need multiple share classes.</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- FOOTER CTA -->
+  <div class="footer-cta">
+    <div>
+      <div class="footer-eyebrow">Not sure where you stand?</div>
+      <div class="footer-title">Let's review your structure.</div>
+      <p class="footer-sub">The right entity choice affects your tax bill, your protection, and what a buyer pays you someday. It's worth a conversation before the stakes get higher.</p>
+    </div>
+    <a class="footer-book" href="https://calendly.com/cadencewp/30min" target="_blank" rel="noopener">Book a free consultation →</a>
+  </div>
+
+  <div class="footer-note">
+    <p>This guide is for educational purposes and does not constitute individualized tax or legal advice.</p>
+    <p style="margin-top: 4px;">Cadence Wealth Partners · 845 Church St N, Suite 205, Concord, NC · <a href="https://cadencewealthpartners.com">cadencewealthpartners.com</a></p>
+  </div>
+
+</div>
+
+<script>
+  const entities = ['sole', 'partner', 'llc', 'scorp', 'ccorp'];
+
+  function showEntity(id) {
+    const panel = document.getElementById('panel-' + id);
+    const isOpen = panel.classList.contains('open');
+
+    entities.forEach(e => {
+      document.getElementById('panel-' + e).classList.remove('open');
+      document.querySelectorAll('.overview-card.' + e).forEach(c => c.classList.remove('active'));
+    });
+
+    if (!isOpen) {
+      panel.classList.add('open');
+      document.querySelector('.overview-card.' + id).classList.add('active');
+      setTimeout(() => panel.scrollIntoView({ behavior: 'smooth', block: 'nearest' }), 50);
+    }
+  }
+</script>
+
+</body>
+</html>
