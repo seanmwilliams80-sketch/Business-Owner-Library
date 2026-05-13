@@ -377,6 +377,533 @@
   <div class="resources-grid" id="grid">
 
     <!-- ── CARD 1: Qualified Plan Guide ── -->
+    <div class="resource-card" data-type="education" data-url="PASTE_DEPLOYED_URL_HERE">
+      <div class="card-meta">
+        <span class="card-type type-education">Educational</span>
+        <span class="card-new">New</span>
+      </div>
+      <div class="card-icon">📋</div>
+      <div class="card-title">Qualified Plan Comparison Guide</div>
+      <p class="card-desc">SIMPLE IRA, SEP-IRA, Solo 401(k), and full 401(k) — contribution limits, eligibility rules, and the real trade-offs. Includes expandable detail panels for each plan.</p>
+      <div class="card-tags">
+        <span class="tag">Retirement</span>
+        <span class="tag">Tax Planning</span>
+        <span class="tag">Plan Design</span>
+        <span class="tag">2026 Limits</span>
+      </div>
+      <div class="card-actions">
+        <button class="btn-copy" onclick="copyLink(this)">
+          <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="9" y="9" width="13" height="13" rx="2"/><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/></svg>
+          Copy link
+        </button>
+        <a class="btn-preview" href="PASTE_DEPLOYED_URL_HERE" target="_blank">
+          <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
+          Preview
+        </a>
+      </div>
+    </div>
+
+    <!-- ── COMING SOON CARDS (placeholders — delete or replace as you build) ── -->
+    <div class="resource-card coming-soon" data-type="tool">
+      <div class="card-meta">
+        <span class="card-type type-tool">Tool</span>
+      </div>
+      <div class="card-icon">🧮</div>
+      <div class="card-title">Business Exit Snapshot</div>
+      <p class="card-desc">Interactive valuation and exit readiness assessment for business owners exploring a future sale or transition.</p>
+      <div class="card-tags">
+        <span class="tag">Exit Planning</span>
+        <span class="tag">Valuation</span>
+        <span class="tag">CEPA</span>
+      </div>
+      <div class="card-actions">
+        <button class="btn-copy">Copy link</button>
+      </div>
+    </div>
+
+    <div class="resource-card coming-soon" data-type="education">
+      <div class="card-meta">
+        <span class="card-type type-education">Educational</span>
+      </div>
+      <div class="card-icon">📊</div>
+      <div class="card-title">The 5 Drivers of Business Value</div>
+      <p class="card-desc">What actually moves the needle on your sale price — and what most owners overlook until it's too late to fix.</p>
+      <div class="card-tags">
+        <span class="tag">Exit Planning</span>
+        <span class="tag">Value Acceleration</span>
+      </div>
+      <div class="card-actions">
+        <button class="btn-copy">Copy link</button>
+      </div>
+    </div>
+
+    <div class="resource-card coming-soon" data-type="tool">
+      <div class="card-meta">
+        <span class="card-type type-tool">Tool</span>
+      </div>
+      <div class="card-icon">💰</div>
+      <div class="card-title">Owner Compensation Optimizer</div>
+      <p class="card-desc">W-2 salary vs. S-Corp distributions — find the tax-optimal split for your business structure and income level.</p>
+      <div class="card-tags">
+        <span class="tag">Tax Planning</span>
+        <span class="tag">S-Corp</span>
+        <span class="tag">Compensation</span>
+      </div>
+      <div class="card-actions">
+        <button class="btn-copy">Copy link</button>
+      </div>
+    </div>
+
+    <div class="resource-card coming-soon" data-type="education">
+      <div class="card-meta">
+        <span class="card-type type-education">Educational</span>
+      </div>
+      <div class="card-icon">🏗️</div>
+      <div class="card-title">Business Structure Guide</div>
+      <p class="card-desc">Sole prop, LLC, S-Corp, C-Corp — what the differences actually mean for taxes, liability, and exit planning.</p>
+      <div class="card-tags">
+        <span class="tag">Entity Structure</span>
+        <span class="tag">Tax Planning</span>
+      </div>
+      <div class="card-actions">
+        <button class="btn-copy">Copy link</button>
+      </div>
+    </div>
+
+  </div>
+
+  <div class="page-footer">
+    <div class="footer-brand">Cadence Wealth Partners</div>
+    <div class="footer-note">
+      Internal use only · 845 Church St N, Suite 205, Concord, NC<br>
+      <a href="https://cadencewealthpartners.com">cadencewealthpartners.com</a> · <a href="https://calendly.com/cadencewp/30min">Book a meeting</a>
+    </div>
+  </div>
+
+</div>
+
+<!-- Toast notification -->
+<div class="toast" id="toast">Link copied to clipboard ✓</div>
+
+<script>
+  function copyLink(btn) {
+    const card = btn.closest('.resource-card');
+    const url = card.dataset.url;
+
+    if (!url || url === 'PASTE_DEPLOYED_URL_HERE') {
+      showToast('⚠ No URL set for this resource yet');
+      return;
+    }
+
+    navigator.clipboard.writeText(url).then(() => {
+      const original = btn.innerHTML;
+      btn.classList.add('copied');
+      btn.innerHTML = `<svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg> Copied!`;
+      showToast('Link copied to clipboard ✓');
+      setTimeout(() => {
+        btn.classList.remove('copied');
+        btn.innerHTML = original;
+      }, 2200);
+    });
+  }
+
+  function showToast(msg) {
+    const t = document.getElementById('toast');
+    t.textContent = msg;
+    t.classList.add('show');
+    setTimeout(() => t.classList.remove('show'), 2400);
+  }
+
+  function filterCards(type, btn) {
+    document.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active'));
+    btn.classList.add('active');
+    document.querySelectorAll('.resource-card:not(.coming-soon)').forEach(card => {
+      card.style.display = (type === 'all' || card.dataset.type === type) ? '' : 'none';
+    });
+  }
+</script>
+
+</body>
+</html>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Business Owner Resources | Cadence Wealth Partners</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=DM+Sans:opsz,wght@9..40,400;9..40,500;9..40,600&display=swap" rel="stylesheet">
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  :root {
+    --navy: #003E6F;
+    --navy-dark: #002d52;
+    --green: #8DC63F;
+    --green-dark: #6fa030;
+    --gray: #6D6E71;
+    --gray-light: #f4f4f2;
+    --gray-mid: #e4e4e0;
+    --border: #ddddd8;
+    --white: #ffffff;
+    --text: #1a1a1a;
+    --text-muted: #5a5a5a;
+  }
+
+  html { scroll-behavior: smooth; }
+
+  body {
+    font-family: 'DM Sans', sans-serif;
+    background: #f0efe9;
+    color: var(--text);
+    min-height: 100vh;
+  }
+
+  /* ── TOPBAR ── */
+  .topbar {
+    background: var(--navy);
+    padding: 14px 40px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    position: sticky;
+    top: 0;
+    z-index: 100;
+  }
+  .topbar-brand {
+    font-family: 'DM Serif Display', serif;
+    font-size: 15px;
+    color: rgba(255,255,255,0.9);
+    letter-spacing: 0.3px;
+  }
+  .topbar-tag {
+    font-size: 11px;
+    color: rgba(255,255,255,0.45);
+    letter-spacing: 1px;
+    text-transform: uppercase;
+  }
+
+  /* ── PAGE WRAP ── */
+  .page-wrap {
+    max-width: 980px;
+    margin: 0 auto;
+    padding: 48px 24px 80px;
+  }
+
+  /* ── HERO ── */
+  .hero {
+    margin-bottom: 44px;
+  }
+  .hero-eyebrow {
+    font-size: 10px;
+    font-weight: 600;
+    letter-spacing: 2.5px;
+    text-transform: uppercase;
+    color: var(--green-dark);
+    margin-bottom: 10px;
+  }
+  .hero-title {
+    font-family: 'DM Serif Display', serif;
+    font-size: 38px;
+    color: var(--navy);
+    line-height: 1.15;
+    margin-bottom: 12px;
+  }
+  .hero-title em { font-style: italic; }
+  .hero-sub {
+    font-size: 15px;
+    color: var(--text-muted);
+    max-width: 520px;
+    line-height: 1.7;
+  }
+
+  /* ── FILTER BAR ── */
+  .filter-bar {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    margin-bottom: 28px;
+    flex-wrap: wrap;
+  }
+  .filter-label {
+    font-size: 11px;
+    font-weight: 600;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+    color: var(--gray);
+    margin-right: 4px;
+  }
+  .filter-btn {
+    padding: 5px 14px;
+    border-radius: 20px;
+    border: 1px solid var(--border);
+    background: var(--white);
+    font-family: 'DM Sans', sans-serif;
+    font-size: 12px;
+    color: var(--text-muted);
+    cursor: pointer;
+    transition: all 0.15s;
+  }
+  .filter-btn:hover { border-color: var(--navy); color: var(--navy); }
+  .filter-btn.active { background: var(--navy); color: var(--white); border-color: var(--navy); }
+
+  /* ── GRID ── */
+  .resources-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+    gap: 16px;
+  }
+
+  /* ── RESOURCE CARD ── */
+  .resource-card {
+    background: var(--white);
+    border: 1px solid var(--border);
+    border-radius: 14px;
+    padding: 24px;
+    display: flex;
+    flex-direction: column;
+    gap: 14px;
+    transition: transform 0.18s ease, box-shadow 0.18s ease;
+    position: relative;
+    overflow: hidden;
+  }
+  .resource-card::before {
+    content: '';
+    position: absolute;
+    top: 0; left: 0; right: 0;
+    height: 3px;
+    background: var(--navy);
+    opacity: 0;
+    transition: opacity 0.18s;
+  }
+  .resource-card:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 28px rgba(0,62,111,0.09);
+  }
+  .resource-card:hover::before { opacity: 1; }
+
+  .card-meta {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 8px;
+  }
+  .card-type {
+    font-size: 10px;
+    font-weight: 600;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+    padding: 3px 10px;
+    border-radius: 20px;
+  }
+  .type-education { background: #e6f4cc; color: #2f5a0b; }
+  .type-tool      { background: #daeaf8; color: #0c3f6e; }
+  .type-template  { background: #fef3d8; color: #6b3e08; }
+  .type-calculator{ background: #ede8f8; color: #3d2480; }
+
+  .card-new {
+    font-size: 10px;
+    font-weight: 600;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    color: var(--green-dark);
+    background: #eef8d6;
+    padding: 3px 10px;
+    border-radius: 20px;
+  }
+
+  .card-icon {
+    font-size: 28px;
+    line-height: 1;
+  }
+
+  .card-title {
+    font-family: 'DM Serif Display', serif;
+    font-size: 18px;
+    color: var(--navy);
+    line-height: 1.25;
+  }
+  .card-desc {
+    font-size: 13px;
+    color: var(--text-muted);
+    line-height: 1.65;
+    flex: 1;
+  }
+
+  .card-tags {
+    display: flex;
+    gap: 5px;
+    flex-wrap: wrap;
+  }
+  .tag {
+    font-size: 10px;
+    padding: 3px 8px;
+    border-radius: 4px;
+    background: var(--gray-light);
+    color: var(--gray);
+    border: 0.5px solid var(--gray-mid);
+  }
+
+  .card-actions {
+    display: flex;
+    gap: 8px;
+    margin-top: auto;
+    padding-top: 4px;
+  }
+  .btn-copy {
+    flex: 1;
+    padding: 9px 12px;
+    background: var(--navy);
+    color: var(--white);
+    border: none;
+    border-radius: 8px;
+    font-family: 'DM Sans', sans-serif;
+    font-size: 12px;
+    font-weight: 500;
+    cursor: pointer;
+    transition: background 0.15s;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 6px;
+  }
+  .btn-copy:hover { background: var(--navy-dark); }
+  .btn-copy.copied { background: #3a6b0f; }
+  .btn-preview {
+    padding: 9px 12px;
+    background: transparent;
+    color: var(--navy);
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    font-family: 'DM Sans', sans-serif;
+    font-size: 12px;
+    font-weight: 500;
+    cursor: pointer;
+    transition: border-color 0.15s, background 0.15s;
+    display: flex;
+    align-items: center;
+    gap: 5px;
+    text-decoration: none;
+  }
+  .btn-preview:hover { border-color: var(--navy); background: var(--gray-light); }
+
+  /* Coming soon card */
+  .resource-card.coming-soon {
+    opacity: 0.55;
+    pointer-events: none;
+  }
+  .resource-card.coming-soon::after {
+    content: 'Coming soon';
+    position: absolute;
+    top: 14px; right: 14px;
+    font-size: 10px;
+    font-weight: 600;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    color: var(--gray);
+    background: var(--gray-light);
+    padding: 3px 10px;
+    border-radius: 20px;
+    border: 0.5px solid var(--gray-mid);
+  }
+
+  /* ── TOAST ── */
+  .toast {
+    position: fixed;
+    bottom: 28px;
+    left: 50%;
+    transform: translateX(-50%) translateY(12px);
+    background: var(--navy);
+    color: var(--white);
+    font-size: 13px;
+    font-weight: 500;
+    padding: 10px 22px;
+    border-radius: 30px;
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.2s, transform 0.2s;
+    white-space: nowrap;
+    z-index: 999;
+  }
+  .toast.show {
+    opacity: 1;
+    transform: translateX(-50%) translateY(0);
+  }
+
+  /* ── FOOTER ── */
+  .page-footer {
+    margin-top: 60px;
+    padding-top: 24px;
+    border-top: 0.5px solid var(--border);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-wrap: gap;
+    gap: 12px;
+  }
+  .footer-brand {
+    font-family: 'DM Serif Display', serif;
+    font-size: 14px;
+    color: var(--navy);
+  }
+  .footer-note {
+    font-size: 11px;
+    color: var(--gray);
+    line-height: 1.6;
+    text-align: right;
+  }
+  .footer-note a { color: var(--navy); text-decoration: none; }
+
+  @media (max-width: 600px) {
+    .topbar { padding: 12px 20px; }
+    .page-wrap { padding: 32px 16px 60px; }
+    .hero-title { font-size: 28px; }
+    .footer-note { text-align: left; }
+  }
+
+  /* ── FADE IN ── */
+  .resource-card {
+    opacity: 0;
+    animation: cardIn 0.4s ease forwards;
+  }
+  .resource-card:nth-child(1) { animation-delay: 0.05s; }
+  .resource-card:nth-child(2) { animation-delay: 0.12s; }
+  .resource-card:nth-child(3) { animation-delay: 0.19s; }
+  .resource-card:nth-child(4) { animation-delay: 0.26s; }
+  .resource-card:nth-child(5) { animation-delay: 0.33s; }
+  @keyframes cardIn {
+    from { opacity: 0; transform: translateY(14px); }
+    to   { opacity: 1; transform: translateY(0); }
+  }
+  .resource-card.coming-soon { opacity: 0.55 !important; }
+</style>
+</head>
+<body>
+
+<div class="topbar">
+  <span class="topbar-brand">Cadence Wealth Partners</span>
+  <span class="topbar-tag">Business Owner Library</span>
+</div>
+
+<div class="page-wrap">
+
+  <div class="hero">
+    <div class="hero-eyebrow">Internal Resource Library</div>
+    <h1 class="hero-title">Business Owner<br><em>Library</em></h1>
+    <p class="hero-sub">Educational guides and planning tools for business owner clients. Find the right piece, copy the link, and send it — or pull it up together in a meeting.</p>
+  </div>
+
+  <div class="filter-bar">
+    <span class="filter-label">Filter</span>
+    <button class="filter-btn active" onclick="filterCards('all', this)">All</button>
+    <button class="filter-btn" onclick="filterCards('education', this)">Educational</button>
+    <button class="filter-btn" onclick="filterCards('tool', this)">Tools</button>
+    <button class="filter-btn" onclick="filterCards('template', this)">Templates</button>
+  </div>
+
+  <div class="resources-grid" id="grid">
+
+    <!-- ── CARD 1: Qualified Plan Guide ── -->
     <div class="resource-card" data-type="education" data-url="https://business-owner-library.vercel.app/cwp-qualified-plan-guide">
       <div class="card-meta">
         <span class="card-type type-education">Educational</span>
